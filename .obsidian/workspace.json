@@ -185,6 +185,7 @@
   },
   "active": "cffa748007ad1ea3",
   "lastOpenFiles": [
+    "scripts/sync_vaults.sh",
     "KEY_BACKUP",
     "untitled folder",
     "00-START-HERE/Quick-Reference.md",
@@ -219,7 +220,6 @@
     "#ARCHIVE/install/Day-05-BONUS-Remote-Access-CORRECTED.md",
     "#ARCHIVE/install",
     "#ARCHIVE/HEIMDALL_CLEAN_20251118_173755.json",
-    "#ARCHIVE/docs/homelab-deployment/homepage-bookmarks.html",
-    "#ARCHIVE/docs/homelab-deployment/pcloud-backup-enhanced.sh"
+    "#ARCHIVE/docs/homelab-deployment/homepage-bookmarks.html"
   ]
 }
