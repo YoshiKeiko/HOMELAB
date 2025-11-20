@@ -1,0 +1,25 @@
+═══════════════════════════════════════════════════════════════
+  Tailscale Configuration
+═══════════════════════════════════════════════════════════════
+
+Mac Details:
+  Hostname: homelab
+  IPv4:     100.96.129.29
+  IPv6:     fd7a:115c:a1e0::501:8121
+
+VNC Connection:
+  Address:  100.96.129.29:5900
+  Password: (Set in System Settings → Sharing → Screen Sharing)
+
+Quick Access URLs:
+  Portainer:       http://100.96.129.29:9000
+  Home Assistant:  http://100.96.129.29:8123
+  Plex:            http://100.96.129.29:32400/web
+  Grafana:         http://100.96.129.29:3003
+  Heimdall:        http://100.96.129.29:8090
+
+Android Apps Needed:
+  - Tailscale (already installed)
+  - VNC Viewer (for screen sharing)
+
+Generated: Mon 17 Nov 2025 09:13:32 GMT

@@ -1,0 +1,297 @@
+# Heimdall Organized Configuration
+# Import this via Heimdall Settings → Import
+
+applications:
+  # ═══════════════════════════════════════════════════════════
+  # 📊 INFRASTRUCTURE
+  # ═══════════════════════════════════════════════════════════
+  - name: "Portainer"
+    url: "http://192.168.50.50:9000"
+    icon: "portainer.png"
+    description: "Docker Management"
+    color: "#13BEF9"
+    
+  - name: "Nginx Proxy Manager"
+    url: "http://192.168.50.50:81"
+    icon: "nginx.png"
+    description: "Reverse Proxy & SSL"
+    color: "#009639"
+    
+  - name: "AdGuard Home"
+    url: "http://192.168.50.50:8084"
+    icon: "adguard.png"
+    description: "Network-wide Ad Blocking"
+    color: "#67B279"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🎬 MEDIA MANAGEMENT
+  # ═══════════════════════════════════════════════════════════
+  - name: "Plex"
+    url: "http://192.168.50.50:32400/web"
+    icon: "plex.png"
+    description: "Media Server"
+    color: "#E5A00D"
+    
+  - name: "Jellyfin"
+    url: "http://192.168.50.50:8096"
+    icon: "jellyfin.png"
+    description: "Alternative Media Server"
+    color: "#00A4DC"
+    
+  - name: "Overseerr"
+    url: "http://192.168.50.50:5055"
+    icon: "overseerr.png"
+    description: "Media Requests"
+    color: "#4051B5"
+    
+  - name: "Tautulli"
+    url: "http://192.168.50.50:8181"
+    icon: "tautulli.png"
+    description: "Plex Statistics"
+    color: "#FF8C00"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🔽 MEDIA AUTOMATION
+  # ═══════════════════════════════════════════════════════════
+  - name: "Sonarr"
+    url: "http://192.168.50.50:8989"
+    icon: "sonarr.png"
+    description: "TV Show Management"
+    color: "#3C5260"
+    
+  - name: "Radarr"
+    url: "http://192.168.50.50:7878"
+    icon: "radarr.png"
+    description: "Movie Management"
+    color: "#FFC230"
+    
+  - name: "Prowlarr"
+    url: "http://192.168.50.50:9696"
+    icon: "prowlarr.png"
+    description: "Indexer Manager"
+    color: "#31A1FF"
+    
+  - name: "Transmission"
+    url: "http://192.168.50.50:9091"
+    icon: "transmission.png"
+    description: "Download Client"
+    color: "#CD0000"
+    
+  - name: "FlareSolverr"
+    url: "http://192.168.50.50:8191"
+    icon: "flaresolverr.png"
+    description: "Cloudflare Bypass"
+    color: "#FF9900"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🏠 SMART HOME
+  # ═══════════════════════════════════════════════════════════
+  - name: "Home Assistant"
+    url: "http://192.168.50.50:8123"
+    icon: "homeassistant.png"
+    description: "Smart Home Hub"
+    color: "#41BDF5"
+    
+  - name: "Node-RED"
+    url: "http://192.168.50.50:1880"
+    icon: "nodered.png"
+    description: "Automation Flows"
+    color: "#8F0000"
+    
+  - name: "Zigbee2MQTT"
+    url: "http://192.168.50.50:8080"
+    icon: "zigbee2mqtt.png"
+    description: "Zigbee Bridge"
+    color: "#FF9900"
+    
+  - name: "ESPHome"
+    url: "http://192.168.50.50:6052"
+    icon: "esphome.png"
+    description: "ESP Device Manager"
+    color: "#000000"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🤖 AI & ML SERVICES
+  # ═══════════════════════════════════════════════════════════
+  - name: "Open WebUI"
+    url: "http://192.168.50.50:3000"
+    icon: "openwebui.png"
+    description: "ChatGPT-like Interface"
+    color: "#8B5CF6"
+    
+  - name: "Jupyter"
+    url: "http://192.168.50.50:8888"
+    icon: "jupyter.png"
+    description: "Data Science Notebooks"
+    color: "#F37726"
+    
+  - name: "Ollama"
+    url: "http://192.168.50.50:11434"
+    icon: "ollama.png"
+    description: "Local LLM Server"
+    color: "#000000"
+
+  # ═══════════════════════════════════════════════════════════
+  # 📊 MONITORING
+  # ═══════════════════════════════════════════════════════════
+  - name: "Grafana"
+    url: "http://192.168.50.50:3003"
+    icon: "grafana.png"
+    description: "Metrics Dashboard"
+    color: "#F46800"
+    
+  - name: "Prometheus"
+    url: "http://192.168.50.50:9090"
+    icon: "prometheus.png"
+    description: "Metrics Collection"
+    color: "#E6522C"
+    
+  - name: "Uptime Kuma"
+    url: "http://192.168.50.50:3004"
+    icon: "uptimekuma.png"
+    description: "Status Monitoring"
+    color: "#5CDD8B"
+    
+  - name: "Netdata"
+    url: "http://192.168.50.50:19999"
+    icon: "netdata.png"
+    description: "Real-time Monitoring"
+    color: "#00AB44"
+    
+  - name: "cAdvisor"
+    url: "http://192.168.50.50:8085"
+    icon: "cadvisor.png"
+    description: "Container Metrics"
+    color: "#0066FF"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🔐 SECURITY
+  # ═══════════════════════════════════════════════════════════
+  - name: "Vaultwarden"
+    url: "http://192.168.50.50:8088"
+    icon: "bitwarden.png"
+    description: "Password Manager"
+    color: "#175DDC"
+    
+  - name: "CrowdSec"
+    url: "http://192.168.50.50:8089"
+    icon: "crowdsec.png"
+    description: "Collaborative Security"
+    color: "#2B8FC6"
+
+  # ═══════════════════════════════════════════════════════════
+  # 📁 STORAGE & FILES
+  # ═══════════════════════════════════════════════════════════
+  - name: "Nextcloud"
+    url: "http://192.168.50.50:8097"
+    icon: "nextcloud.png"
+    description: "Cloud Storage"
+    color: "#0082C9"
+    
+  - name: "File Browser"
+    url: "http://192.168.50.50:8087"
+    icon: "filebrowser.png"
+    description: "Web File Manager"
+    color: "#4285F4"
+    
+  - name: "Syncthing"
+    url: "http://192.168.50.50:8384"
+    icon: "syncthing.png"
+    description: "File Synchronization"
+    color: "#0891D1"
+    
+  - name: "PhotoPrism"
+    url: "http://192.168.50.50:2342"
+    icon: "photoprism.png"
+    description: "Photo Management"
+    color: "#4DB6AC"
+    
+  - name: "Kopia"
+    url: "http://192.168.50.50:8202"
+    icon: "kopia.png"
+    description: "Backup Solution"
+    color: "#3498DB"
+
+  # ═══════════════════════════════════════════════════════════
+  # 📄 PRODUCTIVITY
+  # ═══════════════════════════════════════════════════════════
+  - name: "Paperless-ngx"
+    url: "http://192.168.50.50:8093"
+    icon: "paperless.png"
+    description: "Document Management"
+    color: "#28A745"
+    
+  - name: "FreshRSS"
+    url: "http://192.168.50.50:8098"
+    icon: "freshrss.png"
+    description: "RSS Reader"
+    color: "#0091DC"
+    
+  - name: "Calibre"
+    url: "http://192.168.50.50:8094"
+    icon: "calibre.png"
+    description: "E-book Management"
+    color: "#333333"
+    
+  - name: "Code Server"
+    url: "http://192.168.50.50:8443"
+    icon: "vscode.png"
+    description: "VS Code in Browser"
+    color: "#007ACC"
+    
+  - name: "Gitea"
+    url: "http://192.168.50.50:3001"
+    icon: "gitea.png"
+    description: "Git Server"
+    color: "#609926"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🖥️ DASHBOARDS
+  # ═══════════════════════════════════════════════════════════
+  - name: "Homer"
+    url: "http://192.168.50.50:8091"
+    icon: "homer.png"
+    description: "Simple Dashboard"
+    color: "#3367D6"
+    
+  - name: "Dashy"
+    url: "http://192.168.50.50:4000"
+    icon: "dashy.png"
+    description: "Feature-rich Dashboard"
+    color: "#1CA1F1"
+    
+  - name: "Organizr"
+    url: "http://192.168.50.50:8092"
+    icon: "organizr.png"
+    description: "Unified Dashboard"
+    color: "#2F3337"
+
+  # ═══════════════════════════════════════════════════════════
+  # 🛠️ UTILITIES
+  # ═══════════════════════════════════════════════════════════
+  - name: "Webtop (VNC)"
+    url: "http://192.168.50.50:3050"
+    icon: "ubuntu.png"
+    description: "Ubuntu Desktop in Browser"
+    color: "#E95420"
+
+# Layout Configuration
+settings:
+  title: "Steve's HomeLab"
+  background_image: ""
+  search_provider: "Google"
+  homepage_search: true
+  
+  # Category Order
+  categories:
+    - "Infrastructure"
+    - "Media Management"
+    - "Media Automation"
+    - "Smart Home"
+    - "AI & ML Services"
+    - "Monitoring"
+    - "Security"
+    - "Storage & Files"
+    - "Productivity"
+    - "Dashboards"
+    - "Utilities"

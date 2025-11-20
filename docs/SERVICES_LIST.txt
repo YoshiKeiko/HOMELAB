@@ -1,0 +1,52 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              HOMELAB SERVICES - QUICK REFERENCE                ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Dashboard & Access:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Heimdall:        http://localhost:8090
+VNC Desktop:     http://localhost:3050
+
+Backup:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Duplicati:       http://localhost:8200
+
+Media Services:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Plex:            http://localhost:32400/web
+Overseerr:       http://localhost:5055
+Radarr:          http://localhost:7878
+Sonarr:          http://localhost:8989
+Prowlarr:        http://localhost:9696
+Transmission:    http://localhost:9091 (admin/admin)
+
+Smart Home:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Home Assistant:  http://localhost:8123
+Node-RED:        http://localhost:1880
+MQTT:            localhost:1883
+
+Monitoring:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Grafana:         http://localhost:3000 (admin/admin)
+Prometheus:      http://localhost:9090
+Netdata:         http://localhost:19999
+
+Update Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Update all:      cd ~/HomeLab/Docker/Compose && 
+                 for f in *.yml; do 
+                   docker compose -f "$f" pull && 
+                   docker compose -f "$f" up -d
+                 done
+
+View services:   docker ps
+View logs:       docker logs [container-name]
+Restart:         docker restart [container-name]
+
+Documentation:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Full guide:      ~/HomeLab/docs/HOMELAB_GUIDE.md
+This list:       ~/HomeLab/docs/SERVICES_LIST.txt
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve's HomeLab Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1);
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .quick-link {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .quick-link:hover::before {
+            left: 100%;
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .quick-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .category {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        
+        .category:nth-child(2) { animation-delay: 0.1s; }
+        .category:nth-child(3) { animation-delay: 0.2s; }
+        .category:nth-child(4) { animation-delay: 0.3s; }
+        .category:nth-child(5) { animation-delay: 0.4s; }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid transparent;
+            background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-image: linear-gradient(to right, #667eea 0%, #764ba2 100%) 1;
+        }
+        
+        .category-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+        
+        .service {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem 1.25rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .service::after {
+            content: '→';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%) translateX(10px);
+            opacity: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .service:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+        }
+        
+        .service:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+        
+        .service-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        
+        .service-desc {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+        
+        .service-port {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        footer {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .services {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .quick-access {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Steve's HomeLab Command Center</h1>
+            <p class="subtitle">Enterprise-Grade Infrastructure • 39 Services Running</p>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>All Systems Operational</span>
+            </div>
+        </header>
+
+        <div class="quick-access">
+            <a href="http://192.168.50.50:8090" class="quick-link">
+                <span class="quick-icon">📊</span>
+                <span>Heimdall Dashboard</span>
+            </a>
+            <a href="http://192.168.50.50:9000" class="quick-link">
+                <span class="quick-icon">🐳</span>
+                <span>Docker Control (Portainer)</span>
+            </a>
+            <a href="http://192.168.50.50:32400/web" class="quick-link">
+                <span class="quick-icon">🎬</span>
+                <span>Plex Media Server</span>
+            </a>
+            <a href="http://192.168.50.50:8123" class="quick-link">
+                <span class="quick-icon">🏡</span>
+                <span>Home Assistant</span>
+            </a>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🔧</span>
+                <h2>Infrastructure & Network</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:9000" class="service">
+                    <span class="service-name">Portainer</span>
+                    <span class="service-desc">Docker container management</span>
+                    <span class="service-port">:9000</span>
+                </a>
+                <a href="http://192.168.50.50:81" class="service">
+                    <span class="service-name">Nginx Proxy Manager</span>
+                    <span class="service-desc">Reverse proxy & SSL certificates</span>
+                    <span class="service-port">:81</span>
+                </a>
+                <a href="http://192.168.155.2:8084" class="service">
+                    <span class="service-name">AdGuard Home</span>
+                    <span class="service-desc">Network-wide ad blocking & DNS</span>
+                    <span class="service-port">:8084</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🎬</span>
+                <h2>Media Entertainment</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:32400/web" class="service">
+                    <span class="service-name">Plex</span>
+                    <span class="service-desc">Personal Netflix - stream anywhere</span>
+                    <span class="service-port">:32400</span>
+                </a>
+                <a href="http://192.168.50.50:8096" class="service">
+                    <span class="service-name">Jellyfin</span>
+                    <span class="service-desc">Open-source media server</span>
+                    <span class="service-port">:8096</span>
+                </a>
+                <a href="http://192.168.50.50:5055" class="service">
+                    <span class="service-name">Overseerr</span>
+                    <span class="service-desc">Media requests & discovery</span>
+                    <span class="service-port">:5055</span>
+                </a>
+                <a href="http://192.168.50.50:8181" class="service">
+                    <span class="service-name">Tautulli</span>
+                    <span class="service-desc">Plex usage statistics</span>
+                    <span class="service-port">:8181</span>
+                </a>
+                <a href="http://192.168.50.50:8989" class="service">
+                    <span class="service-name">Sonarr</span>
+                    <span class="service-desc">TV show automation</span>
+                    <span class="service-port">:8989</span>
+                </a>
+                <a href="http://192.168.50.50:7878" class="service">
+                    <span class="service-name">Radarr</span>
+                    <span class="service-desc">Movie automation</span>
+                    <span class="service-port">:7878</span>
+                </a>
+                <a href="http://192.168.50.50:9696" class="service">
+                    <span class="service-name">Prowlarr</span>
+                    <span class="service-desc">Indexer management</span>
+                    <span class="service-port">:9696</span>
+                </a>
+                <a href="http://192.168.50.50:9091/transmission/web/" class="service">
+                    <span class="service-name">Transmission</span>
+                    <span class="service-desc">Download client</span>
+                    <span class="service-port">:9091</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🏡</span>
+                <h2>Smart Home Automation</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:8123" class="service">
+                    <span class="service-name">Home Assistant</span>
+                    <span class="service-desc">Central smart home hub</span>
+                    <span class="service-port">:8123</span>
+                </a>
+                <a href="http://192.168.50.50:1880" class="service">
+                    <span class="service-name">Node-RED</span>
+                    <span class="service-desc">Visual automation builder</span>
+                    <span class="service-port">:1880</span>
+                </a>
+                <a href="http://192.168.50.50:8080" class="service">
+                    <span class="service-name">Zigbee2MQTT</span>
+                    <span class="service-desc">Zigbee device bridge</span>
+                    <span class="service-port">:8080</span>
+                </a>
+                <a href="http://192.168.50.50:6052" class="service">
+                    <span class="service-name">ESPHome</span>
+                    <span class="service-desc">ESP32/ESP8266 firmware</span>
+                    <span class="service-port">:6052</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🤖</span>
+                <h2>AI & Development</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:3000" class="service">
+                    <span class="service-name">Open WebUI</span>
+                    <span class="service-desc">ChatGPT-style AI interface</span>
+                    <span class="service-port">:3000</span>
+                </a>
+                <a href="http://192.168.50.50:11434" class="service">
+                    <span class="service-name">Ollama</span>
+                    <span class="service-desc">Local LLM engine</span>
+                    <span class="service-port">:11434</span>
+                </a>
+                <a href="http://192.168.50.50:8888" class="service">
+                    <span class="service-name">Jupyter</span>
+                    <span class="service-desc">Data science notebooks</span>
+                    <span class="service-port">:8888</span>
+                </a>
+                <a href="http://192.168.50.50:8443" class="service">
+                    <span class="service-name">Code Server</span>
+                    <span class="service-desc">VS Code in browser</span>
+                    <span class="service-port">:8443</span>
+                </a>
+                <a href="http://192.168.50.50:3001" class="service">
+                    <span class="service-name">Gitea</span>
+                    <span class="service-desc">Private Git server</span>
+                    <span class="service-port">:3001</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">📊</span>
+                <h2>Monitoring & Analytics</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:3003" class="service">
+                    <span class="service-name">Grafana</span>
+                    <span class="service-desc">Beautiful metrics dashboards</span>
+                    <span class="service-port">:3003</span>
+                </a>
+                <a href="http://192.168.50.50:9090" class="service">
+                    <span class="service-name">Prometheus</span>
+                    <span class="service-desc">Metrics collection engine</span>
+                    <span class="service-port">:9090</span>
+                </a>
+                <a href="http://192.168.50.50:3004" class="service">
+                    <span class="service-name">Uptime Kuma</span>
+                    <span class="service-desc">Service uptime monitoring</span>
+                    <span class="service-port">:3004</span>
+                </a>
+                <a href="http://192.168.50.50:19999" class="service">
+                    <span class="service-name">Netdata</span>
+                    <span class="service-desc">Real-time system metrics</span>
+                    <span class="service-port">:19999</span>
+                </a>
+                <a href="http://192.168.50.50:8085" class="service">
+                    <span class="service-name">cAdvisor</span>
+                    <span class="service-desc">Container resource stats</span>
+                    <span class="service-port">:8085</span>
+                </a>
+                <a href="http://192.168.50.50:3100" class="service">
+                    <span class="service-name">Loki</span>
+                    <span class="service-desc">Log aggregation system</span>
+                    <span class="service-port">:3100</span>
+                </a>
+                <a href="http://192.168.50.50:8086" class="service">
+                    <span class="service-name">InfluxDB</span>
+                    <span class="service-desc">Time-series database</span>
+                    <span class="service-port">:8086</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🔐</span>
+                <h2>Security</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:8088" class="service">
+                    <span class="service-name">Vaultwarden</span>
+                    <span class="service-desc">Password manager</span>
+                    <span class="service-port">:8088</span>
+                </a>
+                <a href="http://192.168.50.50:8089" class="service">
+                    <span class="service-name">CrowdSec</span>
+                    <span class="service-desc">Collaborative security IPS</span>
+                    <span class="service-port">:8089</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">💾</span>
+                <h2>Storage & Backup</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:8097" class="service">
+                    <span class="service-name">Nextcloud</span>
+                    <span class="service-desc">Personal cloud storage</span>
+                    <span class="service-port">:8097</span>
+                </a>
+                <a href="http://192.168.50.50:2342" class="service">
+                    <span class="service-name">PhotoPrism</span>
+                    <span class="service-desc">AI-powered photo management</span>
+                    <span class="service-port">:2342</span>
+                </a>
+                <a href="http://192.168.50.50:8087" class="service">
+                    <span class="service-name">File Browser</span>
+                    <span class="service-desc">Web-based file manager</span>
+                    <span class="service-port">:8087</span>
+                </a>
+                <a href="http://192.168.50.50:8384" class="service">
+                    <span class="service-name">Syncthing</span>
+                    <span class="service-desc">Continuous file synchronization</span>
+                    <span class="service-port">:8384</span>
+                </a>
+                <a href="http://192.168.50.50:8202/repo" class="service">
+                    <span class="service-name">Kopia</span>
+                    <span class="service-desc">Encrypted backup solution</span>
+                    <span class="service-port">:8202</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">📄</span>
+                <h2>Productivity</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:8093" class="service">
+                    <span class="service-name">Paperless-ngx</span>
+                    <span class="service-desc">Document management system</span>
+                    <span class="service-port">:8093</span>
+                </a>
+                <a href="http://192.168.50.50:8098" class="service">
+                    <span class="service-name">FreshRSS</span>
+                    <span class="service-desc">Self-hosted RSS reader</span>
+                    <span class="service-port">:8098</span>
+                </a>
+                <a href="http://192.168.50.50:8094" class="service">
+                    <span class="service-name">Calibre</span>
+                    <span class="service-desc">E-book library manager</span>
+                    <span class="service-port">:8094</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">📱</span>
+                <h2>Dashboards</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:8090" class="service">
+                    <span class="service-name">Heimdall</span>
+                    <span class="service-desc">Main service dashboard</span>
+                    <span class="service-port">:8090</span>
+                </a>
+                <a href="http://192.168.50.50:8091" class="service">
+                    <span class="service-name">Homer</span>
+                    <span class="service-desc">Simple static dashboard</span>
+                    <span class="service-port">:8091</span>
+                </a>
+                <a href="http://192.168.50.50:8092" class="service">
+                    <span class="service-name">Organizr</span>
+                    <span class="service-desc">Unified service organizer</span>
+                    <span class="service-port">:8092</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🖥️</span>
+                <h2>Utilities</h2>
+            </div>
+            <div class="services">
+                <a href="http://192.168.50.50:3050" class="service">
+                    <span class="service-name">VNC Desktop</span>
+                    <span class="service-desc">Ubuntu desktop in browser</span>
+                    <span class="service-port">:3050</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>🚀 HomeLab Infrastructure • Built with Docker & OrbStack on M4 Mac Mini</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">39 Services • 10GbE Network • 4TB Storage</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+# Backup current config
+cp ~/HomeLab/Docker/Data/heimdall/www/SupportedApps.json \
+   ~/HomeLab/Docker/Data/heimdall/www/SupportedApps.json.backup
+
+# Copy new config
+cp ~/Downloads/heimdall-updated-config.json \
+   ~/HomeLab/Docker/Data/heimdall/www/SupportedApps.json
+
+# Restart Heimdall
+docker restart heimdall
+
+# Wait 10 seconds
+sleep 10
+
+# Open Heimdall
+open http://localhost:8090
+```
+
+---
+
+## 📊 Service Count
+
+**Total: 46 services** (no duplicates!)
+
+**Categories:**
+- 🎬 Media: 8 services (Plex, Radarr, Sonarr, etc.)
+- 🏠 Smart Home: 6 services (Home Assistant, Node-RED, etc.)
+- 📊 Monitoring: 7 services (Grafana, Prometheus, etc.)
+- 💾 Storage/Backup: 5 services (Nextcloud, Kopia, etc.)
+- 🛠️ Utilities: 10 services (Code Server, Gitea, etc.)
+- 🔐 Security: 3 services (AdGuard, CrowdSec, etc.)
+- ⚙️ Infrastructure: 7 services (Portainer, Watchtower, etc.)
+
+---
+
+## 🎨 Visual Organization Tips
+
+**After importing, organize in Heimdall:**
+
+1. **Create Sections** (if Heimdall supports tags)
+2. **Order by Usage:**
+   - Most used at top
+   - Admin/management at bottom
+3. **Color Coding:**
+   - Media services: Warm colors
+   - Monitoring: Blue/Green
+   - Security: Red/Orange
+   - Utilities: Cool colors
+
+---
+
+## ✅ Verified Ports (No Conflicts!)
+```
+3000 - Grafana
+3001 - Uptime Kuma  
+3002 - Gitea
+3003 - OpenWebUI
+3050 - VNC Desktop
+3080 - AdGuard
+3100 - Loki
+5055 - Overseerr
+6052 - ESPHome
+6767 - Bazarr
+7878 - Radarr
+8000 - Paperless
+8080 - Nextcloud/Zigbee2MQTT
+8081 - Calibre
+8082 - FreshRSS
+8085 - cAdvisor
+8086 - InfluxDB
+8087 - File Browser
+8089 - CrowdSec
+8090 - Heimdall
+8096 - Jellyfin
+8123 - Home Assistant
+8181 - Tautulli
+8200 - Duplicati
+8202 - Kopia
+8280 - Vaultwarden
+8384 - Syncthing
+8443 - Code Server
+8686 - Lidarr
+8787 - Readarr
+8888 - Jupyter
+8989 - Sonarr
+9000 - Portainer
+9090 - Prometheus
+9091 - Transmission
+9696 - Prowlarr
+19999 - Netdata
+32400 - Plex

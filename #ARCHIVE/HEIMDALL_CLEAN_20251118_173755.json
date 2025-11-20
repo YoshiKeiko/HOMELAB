@@ -1,0 +1,335 @@
+[
+  {
+    "title": "Plex",
+    "colour": "#4a90e2",
+    "url": "http://localhost:32400/web",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Jellyfin",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8096",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Radarr",
+    "colour": "#4a90e2",
+    "url": "http://localhost:7878",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Sonarr",
+    "colour": "#4a90e2",
+    "url": "Port 8989 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Prowlarr",
+    "colour": "#4a90e2",
+    "url": "http://localhost:9696",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Overseerr",
+    "colour": "#4a90e2",
+    "url": "http://localhost:5055",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Transmission",
+    "colour": "#4a90e2",
+    "url": "Port 9091 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Tautulli",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8181",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Home",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8123",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Node-RED",
+    "colour": "#4a90e2",
+    "url": "http://localhost:1880",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "ESPHome",
+    "colour": "#4a90e2",
+    "url": "http://localhost:6052",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Zigbee2MQTT",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8080",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Grafana",
+    "colour": "#4a90e2",
+    "url": "http://localhost:3000",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Prometheus",
+    "colour": "#4a90e2",
+    "url": "http://localhost:9090",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Netdata",
+    "colour": "#4a90e2",
+    "url": "http://localhost:19999",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Uptime",
+    "colour": "#4a90e2",
+    "url": "http://localhost:3001",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "cAdvisor",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8085",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Loki",
+    "colour": "#4a90e2",
+    "url": "Port 3100 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "InfluxDB",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8086",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Heimdall",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8090",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Homer",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8091",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Dashy",
+    "colour": "#4a90e2",
+    "url": "Port 4000 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Organizr",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8092",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Nextcloud",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8080",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Kopia",
+    "colour": "#4a90e2",
+    "url": "Port 8202 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Syncthing",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8384",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "File",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8087",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "PhotoPrism",
+    "colour": "#4a90e2",
+    "url": "Port 2342 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Gitea",
+    "colour": "#4a90e2",
+    "url": "Port 3002 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Code",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8443",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Jupyter",
+    "colour": "#4a90e2",
+    "url": "http://localhost:8888",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "CrowdSec",
+    "colour": "#4a90e2",
+    "url": "Port 8089 (needs config)",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Nginx",
+    "colour": "#4a90e2",
+    "url": "http://localhost:81",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Portainer",
+    "colour": "#4a90e2",
+    "url": "http://localhost:9000",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "VNC",
+    "colour": "#4a90e2",
+    "url": "http://localhost:3050",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "OpenWebUI",
+    "colour": "#4a90e2",
+    "url": "http://localhost:3003",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+,
+  {
+    "title": "Mosquitto",
+    "colour": "#4a90e2",
+    "url": "Port 1883",
+    "description": null,
+    "appid": null,
+    "appdescription": "Working service - tested 2025-11-18"
+  }
+
+]

@@ -1,0 +1,23 @@
+HomeLab Service Inventory Report
+Generated: Mon 17 Nov 2025 09:50:41 GMT
+
+Total Services: 51
+Running: 15
+Not Installed: 36
+Completion: 29%
+
+Running Containers:
+- transmission: Up About an hour
+- plex: Up About an hour (healthy)
+- prowlarr: Up About an hour
+- jellyfin: Up About an hour (healthy)
+- overseerr: Up About an hour
+- radarr: Up About an hour
+- sonarr: Up About an hour
+- watchtower: Up About an hour (healthy)
+- portainer: Up About an hour
+- influxdb: Up About an hour
+- mariadb: Up About an hour
+- redis: Up About an hour
+- postgres: Up About an hour
+- mongodb: Up About an hour

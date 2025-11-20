@@ -1,0 +1,53 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              DUPLICATI PORT INFORMATION                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+⚠️  PORT CHANGED DUE TO ORBSTACK CONFLICT
+
+Original Port:  8200 (blocked by OrbStack)
+New Port:       8201
+
+Access Duplicati:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+From M4 Mac:
+  http://localhost:8201
+
+From MacBook Air:
+  http://M4-IP:8201
+
+Port Mapping:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Container Port: 8200 (internal)
+Host Port:      8201 (external)
+
+Docker Command:
+  -p 8201:8200
+
+Why Change?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OrbStack uses port 8200 for its own services.
+Duplicati moved to 8201 to avoid conflict.
+
+Both services can now run simultaneously.
+
+Quick Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open Duplicati:
+  open http://localhost:8201
+
+Check status:
+  docker ps | grep duplicati
+
+Restart:
+  docker restart duplicati
+
+View logs:
+  docker logs duplicati
+
+═══════════════════════════════════════════════════════════════
+Created: $(date)
+═══════════════════════════════════════════════════════════════

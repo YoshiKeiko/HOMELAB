@@ -1,0 +1,314 @@
+[
+  {
+    "title": "Portainer",
+    "colour": "#161b1f",
+    "url": "http://localhost:9000",
+    "description": "{\"enabled\":\"0\",\"dataonly\":\"1\",\"override_url\":\"http:\\/\\/localhost:9000\",\"username\":null,\"password\":null,\"ignore_tls\":\"1\"}",
+    "appid": "07b796b3a10eaa8b6f485ed2379187a39400b459",
+    "appdescription": "Docker container management"
+  },
+  {
+    "title": "Vaultwarden",
+    "colour": "#175ddc",
+    "url": "http://localhost:8088",
+    "description": null,
+    "appid": "ddf4f264320af1347ef54d424c60fae3b4fcc448",
+    "appdescription": "Password manager"
+  },
+  {
+    "title": "Home Assistant",
+    "colour": "#41bdf5",
+    "url": "http://localhost:8123",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"token\":null,\"first_stat_label\":null,\"first_stat_template\":null,\"second_stat_label\":null,\"second_stat_template\":null}",
+    "appid": "5c81a4f5ee23ebffa0724a22a040c54e6cb9d7c5",
+    "appdescription": "Smart home hub"
+  },
+  {
+    "title": "Plex",
+    "colour": "#e5a00d",
+    "url": "http://localhost:32400/web",
+    "description": "{\"enabled\":\"0\",\"dataonly\":\"1\",\"override_url\":null,\"section_1_key\":null,\"section_2_key\":null,\"token\":null,\"ignore_tls\":\"0\"}",
+    "appid": "aebda823a279b219476c565be863d83739999502",
+    "appdescription": "Media server"
+  },
+  {
+    "title": "Grafana",
+    "colour": "#f46800",
+    "url": "http://localhost:3003",
+    "description": null,
+    "appid": "f519bce8b0ae84d8dbbc0a793bf6a180043be855",
+    "appdescription": "Monitoring dashboards"
+  },
+  {
+    "title": "Nextcloud",
+    "colour": "#0082c9",
+    "url": "http://localhost:8097",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"username\":null,\"password\":null}",
+    "appid": "f2baa52d02ca888455ce47823f47bf372d5eecb3",
+    "appdescription": "Personal cloud storage"
+  },
+  {
+    "title": "OpenWebUI",
+    "colour": "#8b5cf6",
+    "url": "http://localhost:3000",
+    "description": null,
+    "appid": "ac0fea3a3005484f1afcda501930eab3f21f8393",
+    "appdescription": "Local AI chat"
+  },
+  {
+    "title": "Jellyfin",
+    "colour": "#00a4dc",
+    "url": "http://localhost:8096",
+    "description": null,
+    "appid": null,
+    "appdescription": "Open-source media server"
+  },
+  {
+    "title": "Radarr",
+    "colour": "#ffc230",
+    "url": "http://localhost:7878",
+    "description": null,
+    "appid": null,
+    "appdescription": "Movie automation"
+  },
+  {
+    "title": "Sonarr",
+    "colour": "#35c5f4",
+    "url": "http://localhost:8989",
+    "description": null,
+    "appid": null,
+    "appdescription": "TV show automation"
+  },
+  {
+    "title": "Prowlarr",
+    "colour": "#fa6441",
+    "url": "http://localhost:9696",
+    "description": null,
+    "appid": null,
+    "appdescription": "Indexer manager"
+  },
+  {
+    "title": "Overseerr",
+    "colour": "#5f60e0",
+    "url": "http://localhost:5055",
+    "description": null,
+    "appid": null,
+    "appdescription": "Media requests"
+  },
+  {
+    "title": "Transmission",
+    "colour": "#a03030",
+    "url": "http://localhost:9091",
+    "description": null,
+    "appid": null,
+    "appdescription": "Download client"
+  },
+  {
+    "title": "Uptime Kuma",
+    "colour": "#5cdd8b",
+    "url": "http://localhost:3004",
+    "description": null,
+    "appid": null,
+    "appdescription": "Uptime monitoring"
+  },
+  {
+    "title": "Prometheus",
+    "colour": "#e6522c",
+    "url": "http://localhost:9090",
+    "description": null,
+    "appid": null,
+    "appdescription": "Metrics database"
+  },
+  {
+    "title": "Netdata",
+    "colour": "#00ab44",
+    "url": "http://localhost:19999",
+    "description": null,
+    "appid": null,
+    "appdescription": "Real-time monitoring"
+  },
+  {
+    "title": "Node-RED",
+    "colour": "#8f0000",
+    "url": "http://localhost:1880",
+    "description": null,
+    "appid": null,
+    "appdescription": "Automation flows"
+  },
+  {
+    "title": "Syncthing",
+    "colour": "#0891d1",
+    "url": "http://localhost:8384",
+    "description": null,
+    "appid": null,
+    "appdescription": "File sync"
+  },
+  {
+    "title": "Duplicati",
+    "colour": "#005580",
+    "url": "http://localhost:8200",
+    "description": null,
+    "appid": null,
+    "appdescription": "Backup solution"
+  },
+  {
+    "title": "File Browser",
+    "colour": "#3498db",
+    "url": "http://localhost:8087",
+    "description": null,
+    "appid": null,
+    "appdescription": "Web file manager"
+  },
+  {
+    "title": "Code Server",
+    "colour": "#007acc",
+    "url": "http://localhost:8443",
+    "description": null,
+    "appid": null,
+    "appdescription": "VS Code in browser"
+  },
+  {
+    "title": "Jupyter",
+    "colour": "#f37726",
+    "url": "http://localhost:8888",
+    "description": null,
+    "appid": null,
+    "appdescription": "Python notebooks"
+  },
+  {
+    "title": "Gitea",
+    "colour": "#609926",
+    "url": "http://localhost:3001",
+    "description": null,
+    "appid": null,
+    "appdescription": "Git server"
+  },
+  {
+    "title": "AdGuard Home",
+    "colour": "#67b279",
+    "url": "http://localhost:8084",
+    "description": null,
+    "appid": null,
+    "appdescription": "DNS ad blocker"
+  },
+  {
+    "title": "Paperless-ngx",
+    "colour": "#28a745",
+    "url": "http://localhost:8093",
+    "description": null,
+    "appid": null,
+    "appdescription": "Document management"
+  },
+  {
+    "title": "PhotoPrism",
+    "colour": "#ff6600",
+    "url": "http://localhost:2342",
+    "description": null,
+    "appid": null,
+    "appdescription": "Photo management"
+  },
+  {
+    "title": "Calibre",
+    "colour": "#2a2a2a",
+    "url": "http://localhost:8094",
+    "description": null,
+    "appid": null,
+    "appdescription": "eBook library"
+  },
+  {
+    "title": "FreshRSS",
+    "colour": "#99cc33",
+    "url": "http://localhost:8098",
+    "description": null,
+    "appid": null,
+    "appdescription": "RSS reader"
+  },
+  {
+    "title": "cAdvisor",
+    "colour": "#326ce5",
+    "url": "http://localhost:8085",
+    "description": null,
+    "appid": null,
+    "appdescription": "Container stats"
+  },
+  {
+    "title": "Zigbee2MQTT",
+    "colour": "#ff6600",
+    "url": "http://localhost:8080",
+    "description": null,
+    "appid": null,
+    "appdescription": "Zigbee bridge"
+  },
+  {
+    "title": "ESPHome",
+    "colour": "#000000",
+    "url": "http://localhost:6052",
+    "description": null,
+    "appid": null,
+    "appdescription": "DIY smart devices"
+  },
+  {
+    "title": "CrowdSec",
+    "colour": "#0d47a1",
+    "url": "http://localhost:8089",
+    "description": null,
+    "appid": null,
+    "appdescription": "Security IPS"
+  },
+  {
+    "title": "Homer",
+    "colour": "#3367d6",
+    "url": "http://localhost:8091",
+    "description": null,
+    "appid": null,
+    "appdescription": "Alternative dashboard"
+  },
+  {
+    "title": "Dashy",
+    "colour": "#00ddc0",
+    "url": "http://localhost:4000",
+    "description": null,
+    "appid": null,
+    "appdescription": "Modern dashboard"
+  },
+  {
+    "title": "Organizr",
+    "colour": "#1f1f1f",
+    "url": "http://localhost:8092",
+    "description": null,
+    "appid": null,
+    "appdescription": "Tabbed dashboard"
+  },
+  {
+    "title": "Tautulli",
+    "colour": "#dba23a",
+    "url": "http://localhost:8181",
+    "description": null,
+    "appid": null,
+    "appdescription": "Plex stats"
+  },
+  {
+    "title": "Nginx Proxy Manager",
+    "colour": "#00979c",
+    "url": "http://localhost:81",
+    "description": null,
+    "appid": null,
+    "appdescription": "Reverse proxy"
+  },
+  {
+    "title": "Loki",
+    "colour": "#f46800",
+    "url": "http://localhost:3100",
+    "description": null,
+    "appid": null,
+    "appdescription": "Log aggregation"
+  },
+  {
+    "title": "InfluxDB",
+    "colour": "#22adf6",
+    "url": "http://localhost:8086",
+    "description": null,
+    "appid": null,
+    "appdescription": "Time-series database"
+  }
+]

@@ -1,0 +1,37 @@
+homelab@homelab FROM MAC % docker ps | grep adguard
+docker logs adguard-home --tail 50
+f867823076b5   adguard/adguardhome:latest                   "/opt/adguardhome/Ad…"   About a minute ago   Up About a minute                 80/tcp, 67-68/udp, 443/tcp, 443/udp, 853/udp, 853/tcp, 3000/udp, 5443/tcp, 0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp, [::]:53->53/tcp, [::]:53->53/udp, 5443/udp, 6060/tcp, 0.0.0.0:8084->3000/tcp, [::]:8084->3000/tcp   adguard-home
+2025/11/19 13:29:45.136464 [info] starting adguard home version="AdGuard Home, version v0.107.69"
+2025/11/19 13:29:45.136989 [info] warning: no users in the configuration file; authentication is disabled
+2025/11/19 13:29:45.137268 [info] dhcpd: warning: creating dhcpv4 server err="dhcpv4: invalid IP is not an IPv4 address"
+2025/11/19 13:29:45.137424 [info] tls_manager: using default ciphers
+2025/11/19 13:29:45.141417 [info] webapi: initializing
+2025/11/19 13:29:45.187369 [info] warning: private rdns resolution failed; disabling err="preparing resolvers: no upstream specified"
+2025/11/19 13:29:45.187392 [info] dnsproxy: upstream mode is set mode=load_balance
+2025/11/19 13:29:45.187394 [info] dnsproxy: cache enabled size=4096
+2025/11/19 13:29:45.187397 [info] dnsproxy: max goroutines is set count=300
+2025/11/19 13:29:45.187412 [info] dnsproxy: ratelimit is enabled rps=30 ipv4_subnet_mask_len=24 ipv6_subnet_mask_len=56
+2025/11/19 13:29:45.187413 [info] dnsproxy: server will refuse requests of type any
+2025/11/19 13:29:45.187414 [info] dnsproxy: upstream mode is set mode=load_balance
+2025/11/19 13:29:45.187415 [info] dnsproxy: cache enabled size=8388608
+2025/11/19 13:29:45.187417 [info] dnsproxy: max goroutines is set count=300
+2025/11/19 13:29:45.188057 [info] addrproc: processing addresses
+2025/11/19 13:29:45.188328 [info] webapi: AdGuard Home is available at the following addresses:
+2025/11/19 13:29:45.188392 [info] go to http://127.0.0.1:8084
+2025/11/19 13:29:45.188393 [info] go to http://[::1]:8084
+2025/11/19 13:29:45.188394 [info] go to http://192.168.155.2:8084
+2025/11/19 13:29:45.188408 [info] starting plain server server=plain addr=0.0.0.0:8084
+2025/11/19 13:29:45.455060 [info] dnsproxy: starting dns proxy server
+2025/11/19 13:29:45.455077 [info] dnsproxy: creating udp server socket addr=[::]:53
+2025/11/19 13:29:45.455127 [info] dnsproxy: listening to udp addr=[::]:53
+2025/11/19 13:29:45.455129 [info] dnsproxy: creating udp server socket addr=0.0.0.0:53
+2025/11/19 13:29:45.455138 [info] dnsproxy: listening to udp addr=[::]:53
+2025/11/19 13:29:45.455141 [info] dnsproxy: creating tcp server socket addr=[::]:53
+2025/11/19 13:29:45.455161 [info] dnsproxy: listening to tcp addr=[::]:53
+2025/11/19 13:29:45.455162 [info] dnsproxy: creating tcp server socket addr=0.0.0.0:53
+2025/11/19 13:29:45.455168 [info] dnsproxy: listening to tcp addr=[::]:53
+2025/11/19 13:29:45.455211 [info] dnsproxy: entering udp listener loop addr=[::]:53
+2025/11/19 13:29:45.455224 [info] dnsproxy: entering udp listener loop addr=[::]:53
+2025/11/19 13:29:45.455239 [info] dnsproxy: entering listener loop proto=tcp addr=[::]:53
+2025/11/19 13:29:45.455251 [info] dnsproxy: entering listener loop proto=tcp addr=[::]:53
+homelab@homelab FROM MAC % 

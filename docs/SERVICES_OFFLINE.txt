@@ -1,0 +1,15 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SERVICES OFFLINE OR NOT INSTALLED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✗ Bazarr - http://localhost:6767 (Port 6767)
+✗ Lidarr - http://localhost:8686 (Port 8686)
+✗ Readarr - http://localhost:8787 (Port 8787)
+✗ Duplicati - http://localhost:8200 (Port 8200)
+✗ Paperless-ngx - http://localhost:8000 (Port 8000)
+✗ Calibre - http://localhost:8081 (Port 8081)
+✗ FreshRSS - http://localhost:8082 (Port 8082)
+✗ AdGuard Home - http://localhost:3080 (Port 3080)
+✗ Vaultwarden - http://localhost:8280 (Port 8280)
+
+Total Offline: 9 services

@@ -1,0 +1,123 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              HOMELAB SERVICE CHECK RESULTS                     ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Scan Date: $(date)
+
+✓ ONLINE: Plex - http://localhost:32400/web
+✓ ONLINE: Jellyfin - http://localhost:8096
+✓ ONLINE: Radarr - http://localhost:7878
+✓ PORT OPEN: Sonarr - Port 8989 (needs login or initial setup)
+✓ ONLINE: Prowlarr - http://localhost:9696
+✓ ONLINE: Overseerr - http://localhost:5055
+✓ PORT OPEN: Transmission - Port 9091 (needs login or initial setup)
+✓ ONLINE: Tautulli - http://localhost:8181
+✗ OFFLINE: Bazarr - http://localhost:6767 (Port 6767)
+✗ OFFLINE: Lidarr - http://localhost:8686 (Port 8686)
+✗ OFFLINE: Readarr - http://localhost:8787 (Port 8787)
+✓ ONLINE: Home Assistant - http://localhost:8123
+✓ ONLINE: Node-RED - http://localhost:1880
+✓ ONLINE: ESPHome - http://localhost:6052
+✓ ONLINE: Zigbee2MQTT - http://localhost:8080
+✓ ONLINE: Grafana - http://localhost:3000
+✓ ONLINE: Prometheus - http://localhost:9090
+✓ ONLINE: Netdata - http://localhost:19999
+✓ ONLINE: Uptime Kuma - http://localhost:3001
+✓ ONLINE: cAdvisor - http://localhost:8085
+✓ PORT OPEN: Loki - Port 3100 (needs login or initial setup)
+✓ ONLINE: InfluxDB - http://localhost:8086
+✓ ONLINE: Heimdall - http://localhost:8090
+✓ ONLINE: Homer - http://localhost:8091
+✓ PORT OPEN: Dashy - Port 4000 (needs login or initial setup)
+✓ ONLINE: Organizr - http://localhost:8092
+✓ ONLINE: Nextcloud - http://localhost:8080
+✓ PORT OPEN: Kopia - Port 8202 (needs login or initial setup)
+✗ OFFLINE: Duplicati - http://localhost:8200 (Port 8200)
+✓ ONLINE: Syncthing - http://localhost:8384
+✓ ONLINE: File Browser - http://localhost:8087
+✗ OFFLINE: Paperless-ngx - http://localhost:8000 (Port 8000)
+✓ PORT OPEN: PhotoPrism - Port 2342 (needs login or initial setup)
+✗ OFFLINE: Calibre - http://localhost:8081 (Port 8081)
+✗ OFFLINE: FreshRSS - http://localhost:8082 (Port 8082)
+✓ PORT OPEN: Gitea - Port 3002 (needs login or initial setup)
+✓ ONLINE: Code Server - http://localhost:8443
+✓ ONLINE: Jupyter - http://localhost:8888
+✗ OFFLINE: AdGuard Home - http://localhost:3080 (Port 3080)
+✗ OFFLINE: Vaultwarden - http://localhost:8280 (Port 8280)
+✓ PORT OPEN: CrowdSec - Port 8089 (needs login or initial setup)
+✓ ONLINE: Nginx Proxy Manager - http://localhost:81
+✓ ONLINE: Portainer - http://localhost:9000
+✓ ONLINE: VNC Desktop - http://localhost:3050
+✓ ONLINE: OpenWebUI - http://localhost:3003
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DOCKER CONTAINERS RUNNING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+kasm-vnc
+loki
+netdata
+promtail
+nextcloud
+filebrowser
+nginx-proxy-manager
+transmission
+kopia
+postgres
+prowlarr
+radarr
+watchtower
+flaresolverr
+plex
+sonarr
+jellyfin
+overseerr
+tautulli
+codeserver
+adguard
+paperless
+freshrss
+calibre
+photoprism
+organizr
+dashy
+heimdall
+homer
+fail2ban
+crowdsec
+vaultwarden
+syncthing
+grafana
+node-exporter
+uptime-kuma
+cadvisor
+prometheus
+nodered
+esphome
+mosquitto
+homeassistant
+zigbee2mqtt
+openwebui
+gitea
+ollama
+jupyter
+portainer
+influxdb
+mariadb
+redis
+mongodb
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Services Tested:  46
+Services Online:        37 (80%)
+Services Offline:       9
+Docker Containers:      52 running
+
+Results saved to:
+- Full results:   /Users/homelab/HomeLab/SERVICE_CHECK_RESULTS_20251118_173750.txt
+- Online only:    /Users/homelab/HomeLab/SERVICES_ONLINE.txt
+- Offline only:   /Users/homelab/HomeLab/SERVICES_OFFLINE.txt
+

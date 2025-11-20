@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeLab Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .category {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .category h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .service {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        
+        .service:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .service.broken {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            opacity: 0.6;
+        }
+        
+        .service-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .service-url {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .quick-links {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-links a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .quick-links a:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 Steve's HomeLab</h1>
+        
+        <div class="quick-links">
+            <a href="http://192.168.50.50:8090">📊 Main Dashboard (Heimdall)</a>
+            <a href="http://192.168.50.50:9000">🐳 Docker (Portainer)</a>
+            <a href="http://192.168.50.50:32400/web">🎬 Plex</a>
+            <a href="http://192.168.50.50:8123">🏠 Home Assistant</a>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="category">
+            <h2>🔧 Infrastructure</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:9000" class="service">
+                    <div class="service-name">Portainer</div>
+                    <div class="service-url">:9000</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:81" class="service">
+                    <div class="service-name">Nginx Proxy</div>
+                    <div class="service-url">:81</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8084" class="service broken">
+                    <div class="service-name">AdGuard Home</div>
+                    <div class="service-url">:8084</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Media Services -->
+        <div class="category">
+            <h2>🎬 Media</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:32400/web" class="service broken">
+                    <div class="service-name">Plex</div>
+                    <div class="service-url">:32400</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:8096" class="service">
+                    <div class="service-name">Jellyfin</div>
+                    <div class="service-url">:8096</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8989" class="service broken">
+                    <div class="service-name">Sonarr</div>
+                    <div class="service-url">:8989</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:7878" class="service">
+                    <div class="service-name">Radarr</div>
+                    <div class="service-url">:7878</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:9696" class="service">
+                    <div class="service-name">Prowlarr</div>
+                    <div class="service-url">:9696</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:5055" class="service">
+                    <div class="service-name">Overseerr</div>
+                    <div class="service-url">:5055</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:9091" class="service broken">
+                    <div class="service-name">Transmission</div>
+                    <div class="service-url">:9091</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:8181" class="service">
+                    <div class="service-name">Tautulli</div>
+                    <div class="service-url">:8181</div>
+                    <div class="status">✓ Working</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Smart Home -->
+        <div class="category">
+            <h2>🏠 Smart Home</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:8123" class="service">
+                    <div class="service-name">Home Assistant</div>
+                    <div class="service-url">:8123</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:1880" class="service">
+                    <div class="service-name">Node-RED</div>
+                    <div class="service-url">:1880</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8080" class="service broken">
+                    <div class="service-name">Zigbee2MQTT</div>
+                    <div class="service-url">:8080</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- AI Services -->
+        <div class="category">
+            <h2>🤖 AI Services</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:3000" class="service">
+                    <div class="service-name">Open WebUI</div>
+                    <div class="service-url">:3000</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8888" class="service">
+                    <div class="service-name">Jupyter</div>
+                    <div class="service-url">:8888</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:11434" class="service">
+                    <div class="service-name">Ollama</div>
+                    <div class="service-url">:11434</div>
+                    <div class="status">✓ Working</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Monitoring -->
+        <div class="category">
+            <h2>📊 Monitoring</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:3003" class="service">
+                    <div class="service-name">Grafana</div>
+                    <div class="service-url">:3003</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:9090" class="service">
+                    <div class="service-name">Prometheus</div>
+                    <div class="service-url">:9090</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:3004" class="service">
+                    <div class="service-name">Uptime Kuma</div>
+                    <div class="service-url">:3004</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:19999" class="service">
+                    <div class="service-name">Netdata</div>
+                    <div class="service-url">:19999</div>
+                    <div class="status">✓ Working</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Security -->
+        <div class="category">
+            <h2>🔐 Security</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:8088" class="service">
+                    <div class="service-name">Vaultwarden</div>
+                    <div class="service-url">:8088</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8089" class="service broken">
+                    <div class="service-name">CrowdSec</div>
+                    <div class="service-url">:8089</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Storage -->
+        <div class="category">
+            <h2>📁 Storage</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:8097" class="service">
+                    <div class="service-name">Nextcloud</div>
+                    <div class="service-url">:8097</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:2342" class="service broken">
+                    <div class="service-name">PhotoPrism</div>
+                    <div class="service-url">:2342</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:8087" class="service">
+                    <div class="service-name">File Browser</div>
+                    <div class="service-url">:8087</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8384" class="service">
+                    <div class="service-name">Syncthing</div>
+                    <div class="service-url">:8384</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8202" class="service broken">
+                    <div class="service-name">Kopia</div>
+                    <div class="service-url">:8202</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Productivity -->
+        <div class="category">
+            <h2>📄 Productivity</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:8093" class="service broken">
+                    <div class="service-name">Paperless-ngx</div>
+                    <div class="service-url">:8093</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:8098" class="service">
+                    <div class="service-name">FreshRSS</div>
+                    <div class="service-url">:8098</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8094" class="service">
+                    <div class="service-name">Calibre</div>
+                    <div class="service-url">:8094</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8443" class="service">
+                    <div class="service-name">Code Server</div>
+                    <div class="service-url">:8443</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:3001" class="service">
+                    <div class="service-name">Gitea</div>
+                    <div class="service-url">:3001</div>
+                    <div class="status">✓ Working</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboards -->
+        <div class="category">
+            <h2>📱 Dashboards</h2>
+            <div class="services">
+                <a href="http://192.168.50.50:8090" class="service">
+                    <div class="service-name">Heimdall</div>
+                    <div class="service-url">:8090</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:8091" class="service">
+                    <div class="service-name">Homer</div>
+                    <div class="service-url">:8091</div>
+                    <div class="status">✓ Working</div>
+                </a>
+                <a href="http://192.168.50.50:4000" class="service broken">
+                    <div class="service-name">Dashy</div>
+                    <div class="service-url">:4000</div>
+                    <div class="status">⚠️ Issue</div>
+                </a>
+                <a href="http://192.168.50.50:8092" class="service">
+                    <div class="service-name">Organizr</div>
+                    <div class="service-url">:8092</div>
+                    <div class="status">✓ Working</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
