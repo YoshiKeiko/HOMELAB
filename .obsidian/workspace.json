@@ -185,6 +185,7 @@
   },
   "active": "cffa748007ad1ea3",
   "lastOpenFiles": [
+    "CLAUDE_TEST.md",
     "scripts/sync_vaults.sh",
     "KEY_BACKUP",
     "untitled folder",
@@ -219,7 +220,6 @@
     "#ARCHIVE/install/Day-05-Remote-Access-RustDesk-Guacamole.md",
     "#ARCHIVE/install/Day-05-BONUS-Remote-Access-CORRECTED.md",
     "#ARCHIVE/install",
-    "#ARCHIVE/HEIMDALL_CLEAN_20251118_173755.json",
-    "#ARCHIVE/docs/homelab-deployment/homepage-bookmarks.html"
+    "#ARCHIVE/HEIMDALL_CLEAN_20251118_173755.json"
   ]
 }
