@@ -10,378 +10,815 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1.5rem;
+            color: #fff;
         }
-        
+
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
-        
-        h1 {
-            color: white;
+
+        header {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .category {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
-        .category h2 {
-            color: #333;
+
+        h1 {
+            font-size: 2rem;
             margin-bottom: 1rem;
-            font-size: 1.4rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
+            color: #fff;
         }
-        
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .search-box:before {
+            content: "🔍";
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .category {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .category h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.8rem;
         }
-        
+
         .service {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 8px;
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             color: white;
             display: block;
+            position: relative;
         }
-        
+
         .service:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
-        
-        .service.broken {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            opacity: 0.6;
-        }
-        
+
         .service-name {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
-        
-        .service-url {
-            font-size: 0.8rem;
-            opacity: 0.9;
+
+        .service-port {
+            font-size: 0.75rem;
+            opacity: 0.8;
         }
-        
-        .status {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+
+        .service-desc {
             font-size: 0.7rem;
-            margin-top: 0.5rem;
-            background: rgba(255,255,255,0.2);
+            opacity: 0.7;
+            margin-top: 0.3rem;
         }
-        
-        .quick-links {
+
+        .service.db {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .service.media {
+            background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+        }
+
+        .service.monitor {
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+        }
+
+        .service.security {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .service.smarthome {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.3);
+            border: none;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .service:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .no-results {
             text-align: center;
-            margin-bottom: 2rem;
+            padding: 2rem;
+            color: rgba(255,255,255,0.5);
         }
-        
-        .quick-links a {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 2rem;
-            margin: 0.5rem;
-            border-radius: 8px;
+
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.2rem;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             transition: transform 0.2s;
         }
-        
-        .quick-links a:hover {
-            transform: translateY(-2px);
+
+        .quick-card:hover {
+            transform: scale(1.02);
+        }
+
+        .quick-card .icon {
+            font-size: 2rem;
+        }
+
+        .quick-card .info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .quick-card .info span {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            .quick-access {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏠 Steve's HomeLab</h1>
-        
-        <div class="quick-links">
-            <a href="http://192.168.50.50:8090">📊 Main Dashboard (Heimdall)</a>
-            <a href="http://192.168.50.50:9000">🐳 Docker (Portainer)</a>
-            <a href="http://192.168.50.50:32400/web">🎬 Plex</a>
-            <a href="http://192.168.50.50:8123">🏠 Home Assistant</a>
+        <header>
+            <h1>Steve's HomeLab</h1>
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search services... (e.g., plex, grafana, port 8080)">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+                <button class="filter-btn" data-filter="media">Media</button>
+                <button class="filter-btn" data-filter="smarthome">Smart Home</button>
+                <button class="filter-btn" data-filter="monitor">Monitoring</button>
+                <button class="filter-btn" data-filter="security">Security</button>
+                <button class="filter-btn" data-filter="storage">Storage</button>
+                <button class="filter-btn" data-filter="productivity">Productivity</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+                <button class="filter-btn" data-filter="db">Databases</button>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Services</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="running-count">--</div>
+                    <div class="stat-label">Running</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quick Access -->
+        <div class="quick-access">
+            <a href="http://localhost:9000" class="quick-card">
+                <span class="icon">🐳</span>
+                <div class="info">
+                    <h3>Portainer</h3>
+                    <span>Manage Docker</span>
+                </div>
+            </a>
+            <a href="http://localhost:8123" class="quick-card">
+                <span class="icon">🏠</span>
+                <div class="info">
+                    <h3>Home Assistant</h3>
+                    <span>Smart Home</span>
+                </div>
+            </a>
+            <a href="http://localhost:32400/web" class="quick-card">
+                <span class="icon">🎬</span>
+                <div class="info">
+                    <h3>Plex</h3>
+                    <span>Media Server</span>
+                </div>
+            </a>
+            <a href="http://localhost:3003" class="quick-card">
+                <span class="icon">📊</span>
+                <div class="info">
+                    <h3>Grafana</h3>
+                    <span>Monitoring</span>
+                </div>
+            </a>
         </div>
 
-        <!-- Infrastructure -->
-        <div class="category">
-            <h2>🔧 Infrastructure</h2>
+        <!-- Dashboards -->
+        <div class="category" data-category="dashboard">
+            <h2>📱 Dashboards</h2>
             <div class="services">
-                <a href="http://192.168.50.50:9000" class="service">
-                    <div class="service-name">Portainer</div>
-                    <div class="service-url">:9000</div>
-                    <div class="status">✓ Working</div>
+                <a href="http://localhost:8090" class="service" data-tags="heimdall dashboard homepage">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8090')">Copy</button>
+                    <div class="service-name">Heimdall</div>
+                    <div class="service-port">:8090</div>
+                    <div class="service-desc">Application Dashboard</div>
                 </a>
-                <a href="http://192.168.50.50:81" class="service">
-                    <div class="service-name">Nginx Proxy</div>
-                    <div class="service-url">:81</div>
-                    <div class="status">✓ Working</div>
+                <a href="http://localhost:8091" class="service" data-tags="homer dashboard homepage">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8091')">Copy</button>
+                    <div class="service-name">Homer</div>
+                    <div class="service-port">:8091</div>
+                    <div class="service-desc">Simple Dashboard</div>
                 </a>
-                <a href="http://192.168.155.2:8084" class="service">
-                    <div class="service-name">AdGuard Home</div>
-                    <div class="service-url">:8084</div>
-                    <div class="status">✓ Working</div>
+                <a href="http://localhost:4000" class="service" data-tags="dashy dashboard homepage">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:4000')">Copy</button>
+                    <div class="service-name">Dashy</div>
+                    <div class="service-port">:4000</div>
+                    <div class="service-desc">Feature-rich Dashboard</div>
+                </a>
+                <a href="http://localhost:8092" class="service" data-tags="organizr dashboard tabs">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8092')">Copy</button>
+                    <div class="service-name">Organizr</div>
+                    <div class="service-port">:8092</div>
+                    <div class="service-desc">Tab-based Dashboard</div>
                 </a>
             </div>
         </div>
 
-        <!-- Media Services -->
-        <div class="category">
+        <!-- Infrastructure -->
+        <div class="category" data-category="infrastructure">
+            <h2>🔧 Infrastructure</h2>
+            <div class="services">
+                <a href="http://localhost:9000" class="service" data-tags="portainer docker containers management">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:9000')">Copy</button>
+                    <div class="service-name">Portainer</div>
+                    <div class="service-port">:9000</div>
+                    <div class="service-desc">Docker Management</div>
+                </a>
+                <a href="http://localhost:81" class="service" data-tags="nginx proxy manager npm reverse proxy ssl">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:81')">Copy</button>
+                    <div class="service-name">Nginx Proxy Manager</div>
+                    <div class="service-port">:81</div>
+                    <div class="service-desc">Reverse Proxy</div>
+                </a>
+                <a href="http://localhost:8084" class="service" data-tags="adguard dns adblocker">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8084')">Copy</button>
+                    <div class="service-name">AdGuard Home</div>
+                    <div class="service-port">:8084</div>
+                    <div class="service-desc">DNS & Ad Blocking</div>
+                </a>
+                <a href="http://localhost:8191" class="service" data-tags="flaresolverr captcha cloudflare bypass">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8191')">Copy</button>
+                    <div class="service-name">FlareSolverr</div>
+                    <div class="service-port">:8191</div>
+                    <div class="service-desc">Captcha Solver</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Media -->
+        <div class="category" data-category="media">
             <h2>🎬 Media</h2>
             <div class="services">
-                <a href="http://192.168.50.50:32400/web" class="service">
+                <a href="http://localhost:32400/web" class="service media" data-tags="plex media server streaming movies tv">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:32400/web')">Copy</button>
                     <div class="service-name">Plex</div>
-                    <div class="service-url">:32400</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:32400</div>
+                    <div class="service-desc">Media Server</div>
                 </a>
-                <a href="http://192.168.50.50:8096" class="service">
+                <a href="http://localhost:8096" class="service media" data-tags="jellyfin media server streaming movies tv">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8096')">Copy</button>
                     <div class="service-name">Jellyfin</div>
-                    <div class="service-url">:8096</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8096</div>
+                    <div class="service-desc">Media Server (FOSS)</div>
                 </a>
-                <a href="http://192.168.50.50:8989" class="service">
+                <a href="http://localhost:8989" class="service media" data-tags="sonarr tv shows series automation">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8989')">Copy</button>
                     <div class="service-name">Sonarr</div>
-                    <div class="service-url">:8989</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8989</div>
+                    <div class="service-desc">TV Show Manager</div>
                 </a>
-                <a href="http://192.168.50.50:7878" class="service">
+                <a href="http://localhost:7878" class="service media" data-tags="radarr movies automation">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:7878')">Copy</button>
                     <div class="service-name">Radarr</div>
-                    <div class="service-url">:7878</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:7878</div>
+                    <div class="service-desc">Movie Manager</div>
                 </a>
-                <a href="http://192.168.50.50:9696" class="service">
+                <a href="http://localhost:9696" class="service media" data-tags="prowlarr indexer manager torrent usenet">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:9696')">Copy</button>
                     <div class="service-name">Prowlarr</div>
-                    <div class="service-url">:9696</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:9696</div>
+                    <div class="service-desc">Indexer Manager</div>
                 </a>
-                <a href="http://192.168.50.50:5055" class="service">
+                <a href="http://localhost:5055" class="service media" data-tags="overseerr requests movies tv plex">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:5055')">Copy</button>
                     <div class="service-name">Overseerr</div>
-                    <div class="service-url">:5055</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:5055</div>
+                    <div class="service-desc">Media Requests</div>
                 </a>
-                <a href="http://192.168.50.50:9091" class="service">
+                <a href="http://localhost:9091" class="service media" data-tags="transmission torrent download client">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:9091')">Copy</button>
                     <div class="service-name">Transmission</div>
-                    <div class="service-url">:9091</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:9091</div>
+                    <div class="service-desc">Torrent Client</div>
                 </a>
-                <a href="http://192.168.50.50:8181" class="service">
+                <a href="http://localhost:8181" class="service media" data-tags="tautulli plex statistics history">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8181')">Copy</button>
                     <div class="service-name">Tautulli</div>
-                    <div class="service-url">:8181</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8181</div>
+                    <div class="service-desc">Plex Statistics</div>
                 </a>
             </div>
         </div>
 
         <!-- Smart Home -->
-        <div class="category">
+        <div class="category" data-category="smarthome">
             <h2>🏠 Smart Home</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8123" class="service">
+                <a href="http://localhost:8123" class="service smarthome" data-tags="home assistant hass automation iot">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8123')">Copy</button>
                     <div class="service-name">Home Assistant</div>
-                    <div class="service-url">:8123</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8123</div>
+                    <div class="service-desc">Home Automation</div>
                 </a>
-                <a href="http://192.168.50.50:1880" class="service">
+                <a href="http://localhost:1880" class="service smarthome" data-tags="node-red nodered automation flows">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:1880')">Copy</button>
                     <div class="service-name">Node-RED</div>
-                    <div class="service-url">:1880</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:1880</div>
+                    <div class="service-desc">Flow Automation</div>
                 </a>
-                <a href="http://192.168.50.50:8080" class="service">
+                <a href="http://localhost:8080" class="service smarthome" data-tags="zigbee2mqtt zigbee z2m devices">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8080')">Copy</button>
                     <div class="service-name">Zigbee2MQTT</div>
-                    <div class="service-url">:8080</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8080</div>
+                    <div class="service-desc">Zigbee Bridge</div>
+                </a>
+                <a href="http://localhost:6052" class="service smarthome" data-tags="esphome esp esp32 esp8266 iot">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:6052')">Copy</button>
+                    <div class="service-name">ESPHome</div>
+                    <div class="service-port">:6052</div>
+                    <div class="service-desc">ESP Device Manager</div>
+                </a>
+                <a href="http://localhost:1883" class="service smarthome" data-tags="mosquitto mqtt broker">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:1883')">Copy</button>
+                    <div class="service-name">Mosquitto</div>
+                    <div class="service-port">:1883</div>
+                    <div class="service-desc">MQTT Broker</div>
                 </a>
             </div>
         </div>
 
         <!-- AI Services -->
-        <div class="category">
+        <div class="category" data-category="ai">
             <h2>🤖 AI Services</h2>
             <div class="services">
-                <a href="http://192.168.50.50:3000" class="service">
+                <a href="http://localhost:3000" class="service" data-tags="openwebui open webui ollama chat llm ai">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3000')">Copy</button>
                     <div class="service-name">Open WebUI</div>
-                    <div class="service-url">:3000</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:3000</div>
+                    <div class="service-desc">AI Chat Interface</div>
                 </a>
-                <a href="http://192.168.50.50:8888" class="service">
-                    <div class="service-name">Jupyter</div>
-                    <div class="service-url">:8888</div>
-                    <div class="status">✓ Working</div>
-                </a>
-                <a href="http://192.168.50.50:11434" class="service">
+                <a href="http://localhost:11434" class="service" data-tags="ollama llm ai models local">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:11434')">Copy</button>
                     <div class="service-name">Ollama</div>
-                    <div class="service-url">:11434</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:11434</div>
+                    <div class="service-desc">Local LLM API</div>
+                </a>
+                <a href="http://localhost:8888" class="service" data-tags="jupyter notebook python data science">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8888')">Copy</button>
+                    <div class="service-name">Jupyter</div>
+                    <div class="service-port">:8888</div>
+                    <div class="service-desc">Notebooks</div>
                 </a>
             </div>
         </div>
 
         <!-- Monitoring -->
-        <div class="category">
+        <div class="category" data-category="monitor">
             <h2>📊 Monitoring</h2>
             <div class="services">
-                <a href="http://192.168.50.50:3003" class="service">
+                <a href="http://localhost:3003" class="service monitor" data-tags="grafana dashboards metrics visualization">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3003')">Copy</button>
                     <div class="service-name">Grafana</div>
-                    <div class="service-url">:3003</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:3003</div>
+                    <div class="service-desc">Metrics Dashboards</div>
                 </a>
-                <a href="http://192.168.50.50:9090" class="service">
+                <a href="http://localhost:9090" class="service monitor" data-tags="prometheus metrics time series">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:9090')">Copy</button>
                     <div class="service-name">Prometheus</div>
-                    <div class="service-url">:9090</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:9090</div>
+                    <div class="service-desc">Metrics Database</div>
                 </a>
-                <a href="http://192.168.50.50:3004" class="service">
+                <a href="http://localhost:3004" class="service monitor" data-tags="uptime kuma status monitoring ping">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3004')">Copy</button>
                     <div class="service-name">Uptime Kuma</div>
-                    <div class="service-url">:3004</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:3004</div>
+                    <div class="service-desc">Uptime Monitoring</div>
                 </a>
-                <a href="http://192.168.50.50:19999" class="service">
+                <a href="http://localhost:19999" class="service monitor" data-tags="netdata realtime system monitoring">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:19999')">Copy</button>
                     <div class="service-name">Netdata</div>
-                    <div class="service-url">:19999</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:19999</div>
+                    <div class="service-desc">Real-time Metrics</div>
+                </a>
+                <a href="http://localhost:8085" class="service monitor" data-tags="cadvisor docker container metrics">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8085')">Copy</button>
+                    <div class="service-name">cAdvisor</div>
+                    <div class="service-port">:8085</div>
+                    <div class="service-desc">Container Metrics</div>
+                </a>
+                <a href="http://localhost:9100/metrics" class="service monitor" data-tags="node exporter prometheus system">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:9100/metrics')">Copy</button>
+                    <div class="service-name">Node Exporter</div>
+                    <div class="service-port">:9100</div>
+                    <div class="service-desc">System Metrics</div>
+                </a>
+                <a href="http://localhost:3100" class="service monitor" data-tags="loki logs grafana logging">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3100')">Copy</button>
+                    <div class="service-name">Loki</div>
+                    <div class="service-port">:3100</div>
+                    <div class="service-desc">Log Aggregation</div>
+                </a>
+                <a href="http://localhost:8086" class="service monitor" data-tags="influxdb time series database metrics">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8086')">Copy</button>
+                    <div class="service-name">InfluxDB</div>
+                    <div class="service-port">:8086</div>
+                    <div class="service-desc">Time Series DB</div>
                 </a>
             </div>
         </div>
 
         <!-- Security -->
-        <div class="category">
+        <div class="category" data-category="security">
             <h2>🔐 Security</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8088" class="service">
+                <a href="http://localhost:8088" class="service security" data-tags="vaultwarden bitwarden passwords">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8088')">Copy</button>
                     <div class="service-name">Vaultwarden</div>
-                    <div class="service-url">:8088</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8088</div>
+                    <div class="service-desc">Password Manager</div>
                 </a>
-                <a href="http://192.168.50.50:8089" class="service broken">
+                <a href="http://localhost:8089" class="service security" data-tags="crowdsec security firewall intrusion">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8089')">Copy</button>
                     <div class="service-name">CrowdSec</div>
-                    <div class="service-url">:8089</div>
-                    <div class="status">⚠️ Issue</div>
+                    <div class="service-port">:8089</div>
+                    <div class="service-desc">Security Engine</div>
                 </a>
             </div>
         </div>
 
         <!-- Surveillance -->
-        <div class="category">
+        <div class="category" data-category="security">
             <h2>📹 Surveillance</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8099" class="service">
+                <a href="http://localhost:8099" class="service security" data-tags="agent dvr cameras nvr security cctv">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8099')">Copy</button>
                     <div class="service-name">Agent DVR</div>
-                    <div class="service-url">:8099</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8099</div>
+                    <div class="service-desc">Camera Recording</div>
                 </a>
             </div>
         </div>
 
-        <!-- Storage -->
-        <div class="category">
-            <h2>📁 Storage</h2>
+        <!-- Storage & Files -->
+        <div class="category" data-category="storage">
+            <h2>📁 Storage & Files</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8097" class="service">
+                <a href="http://localhost:8097" class="service" data-tags="nextcloud files cloud storage sync">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8097')">Copy</button>
                     <div class="service-name">Nextcloud</div>
-                    <div class="service-url">:8097</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8097</div>
+                    <div class="service-desc">Cloud Storage</div>
                 </a>
-                <a href="http://192.168.50.50:2342" class="service">
+                <a href="http://localhost:2342" class="service" data-tags="photoprism photos gallery ai">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:2342')">Copy</button>
                     <div class="service-name">PhotoPrism</div>
-                    <div class="service-url">:2342</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:2342</div>
+                    <div class="service-desc">Photo Management</div>
                 </a>
-                <a href="http://192.168.50.50:8087" class="service">
+                <a href="http://localhost:8087" class="service" data-tags="filebrowser files explorer">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8087')">Copy</button>
                     <div class="service-name">File Browser</div>
-                    <div class="service-url">:8087</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8087</div>
+                    <div class="service-desc">Web File Manager</div>
                 </a>
-                <a href="http://192.168.50.50:8384" class="service">
+                <a href="http://localhost:8384" class="service" data-tags="syncthing sync files p2p">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8384')">Copy</button>
                     <div class="service-name">Syncthing</div>
-                    <div class="service-url">:8384</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8384</div>
+                    <div class="service-desc">File Sync</div>
                 </a>
-                <a href="http://192.168.50.50:8202" class="service">
+                <a href="http://localhost:8202" class="service" data-tags="kopia backup snapshots">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8202')">Copy</button>
                     <div class="service-name">Kopia</div>
-                    <div class="service-url">:8202</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8202</div>
+                    <div class="service-desc">Backup Manager</div>
                 </a>
             </div>
         </div>
 
         <!-- Productivity -->
-        <div class="category">
+        <div class="category" data-category="productivity">
             <h2>📄 Productivity</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8093" class="service">
+                <a href="http://localhost:8093" class="service" data-tags="paperless documents ocr scan">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8093')">Copy</button>
                     <div class="service-name">Paperless-ngx</div>
-                    <div class="service-url">:8093</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8093</div>
+                    <div class="service-desc">Document Manager</div>
                 </a>
-                <a href="http://192.168.50.50:8098" class="service">
+                <a href="http://localhost:8098" class="service" data-tags="freshrss rss feed reader news">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8098')">Copy</button>
                     <div class="service-name">FreshRSS</div>
-                    <div class="service-url">:8098</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8098</div>
+                    <div class="service-desc">RSS Reader</div>
                 </a>
-                <a href="http://192.168.50.50:8094" class="service">
+                <a href="http://localhost:8094" class="service" data-tags="calibre ebooks library">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8094')">Copy</button>
                     <div class="service-name">Calibre</div>
-                    <div class="service-url">:8094</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8094</div>
+                    <div class="service-desc">E-book Manager</div>
                 </a>
-                <a href="http://192.168.50.50:8443" class="service">
+                <a href="http://localhost:8095" class="service" data-tags="calibre content server ebooks download">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8095')">Copy</button>
+                    <div class="service-name">Calibre Server</div>
+                    <div class="service-port">:8095</div>
+                    <div class="service-desc">E-book Downloads</div>
+                </a>
+                <a href="http://localhost:8443" class="service" data-tags="code server vscode ide development">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:8443')">Copy</button>
                     <div class="service-name">Code Server</div>
-                    <div class="service-url">:8443</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:8443</div>
+                    <div class="service-desc">VS Code in Browser</div>
                 </a>
-                <a href="http://192.168.50.50:3001" class="service">
+                <a href="http://localhost:3001" class="service" data-tags="gitea git repository code">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3001')">Copy</button>
                     <div class="service-name">Gitea</div>
-                    <div class="service-url">:3001</div>
-                    <div class="status">✓ Working</div>
+                    <div class="service-port">:3001</div>
+                    <div class="service-desc">Git Repository</div>
                 </a>
             </div>
         </div>
 
-        <!-- Dashboards -->
-        <div class="category">
-            <h2>📱 Dashboards</h2>
+        <!-- Remote Access -->
+        <div class="category" data-category="productivity">
+            <h2>🖥️ Remote Access</h2>
             <div class="services">
-                <a href="http://192.168.50.50:8090" class="service">
-                    <div class="service-name">Heimdall</div>
-                    <div class="service-url">:8090</div>
-                    <div class="status">✓ Working</div>
-                </a>
-                <a href="http://192.168.50.50:8091" class="service">
-                    <div class="service-name">Homer</div>
-                    <div class="service-url">:8091</div>
-                    <div class="status">✓ Working</div>
-                </a>
-                <a href="http://192.168.50.50:8092" class="service">
-                    <div class="service-name">Organizr</div>
-                    <div class="service-url">:8092</div>
-                    <div class="status">✓ Working</div>
+                <a href="http://localhost:3050" class="service" data-tags="kasm vnc remote desktop">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:3050')">Copy</button>
+                    <div class="service-name">KASM VNC</div>
+                    <div class="service-port">:3050</div>
+                    <div class="service-desc">Remote Desktop</div>
                 </a>
             </div>
         </div>
+
+        <!-- Databases -->
+        <div class="category" data-category="db">
+            <h2>🗄️ Databases</h2>
+            <div class="services">
+                <a href="#" class="service db" data-tags="mariadb mysql database sql" onclick="copyUrl('localhost:3306');return false;">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('localhost:3306')">Copy</button>
+                    <div class="service-name">MariaDB</div>
+                    <div class="service-port">:3306</div>
+                    <div class="service-desc">MySQL Compatible</div>
+                </a>
+                <a href="#" class="service db" data-tags="postgres postgresql database sql" onclick="copyUrl('localhost:5432');return false;">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('localhost:5432')">Copy</button>
+                    <div class="service-name">PostgreSQL</div>
+                    <div class="service-port">:5432</div>
+                    <div class="service-desc">SQL Database</div>
+                </a>
+                <a href="#" class="service db" data-tags="mongodb mongo nosql database" onclick="copyUrl('localhost:27017');return false;">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('localhost:27017')">Copy</button>
+                    <div class="service-name">MongoDB</div>
+                    <div class="service-port">:27017</div>
+                    <div class="service-desc">NoSQL Database</div>
+                </a>
+                <a href="#" class="service db" data-tags="redis cache database key value" onclick="copyUrl('localhost:6379');return false;">
+                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('localhost:6379')">Copy</button>
+                    <div class="service-name">Redis</div>
+                    <div class="service-port">:6379</div>
+                    <div class="service-desc">Cache & Key-Value</div>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Last updated: November 26, 2025 | Press <kbd>/</kbd> to search | Click "Copy" to copy URL</p>
+        </footer>
     </div>
+
+    <div class="no-results hidden" id="no-results">
+        <p>No services found matching your search.</p>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('search');
+        const services = document.querySelectorAll('.service');
+        const categories = document.querySelectorAll('.category');
+        const noResults = document.getElementById('no-results');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            let hasResults = false;
+
+            services.forEach(service => {
+                const name = service.querySelector('.service-name').textContent.toLowerCase();
+                const port = service.querySelector('.service-port').textContent.toLowerCase();
+                const tags = service.dataset.tags || '';
+                const desc = service.querySelector('.service-desc')?.textContent.toLowerCase() || '';
+
+                const matches = name.includes(query) || port.includes(query) || tags.includes(query) || desc.includes(query);
+                service.classList.toggle('hidden', !matches);
+                if (matches) hasResults = true;
+            });
+
+            // Hide empty categories
+            categories.forEach(cat => {
+                const visibleServices = cat.querySelectorAll('.service:not(.hidden)');
+                cat.classList.toggle('hidden', visibleServices.length === 0);
+            });
+
+            noResults.classList.toggle('hidden', hasResults);
+        });
+
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+
+                if (filter === 'all') {
+                    categories.forEach(cat => cat.classList.remove('hidden'));
+                    services.forEach(s => s.classList.remove('hidden'));
+                } else {
+                    categories.forEach(cat => {
+                        const catFilter = cat.dataset.category;
+                        cat.classList.toggle('hidden', catFilter !== filter);
+                    });
+                }
+
+                searchInput.value = '';
+                noResults.classList.add('hidden');
+            });
+        });
+
+        // Keyboard shortcut for search
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '/' && document.activeElement !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.blur();
+                services.forEach(s => s.classList.remove('hidden'));
+                categories.forEach(c => c.classList.remove('hidden'));
+                noResults.classList.add('hidden');
+            }
+        });
+
+        // Copy URL function
+        function copyUrl(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                // Brief visual feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = originalText, 1000);
+            });
+        }
+
+        // Check service status (simplified - just counts)
+        document.getElementById('running-count').textContent = document.querySelectorAll('.service').length;
+    </script>
 </body>
 </html>
