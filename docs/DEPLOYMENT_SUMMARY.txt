@@ -1,0 +1,96 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              HOMELAB DEPLOYMENT COMPLETE!                      ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Deployment Date: Tue 18 Nov 2025 17:09:29 GMT
+Total Services:  52 containers running
+
+Services Deployed:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+adguard:             http://localhost:53   
+cadvisor:            http://localhost:8080 
+calibre:             http://localhost:8080 
+codeserver:          http://localhost:8443 
+crowdsec:            http://localhost:8080 
+dashy:               http://localhost:80   
+esphome:             (no web interface)
+fail2ban:            (no web interface)
+filebrowser:         http://localhost:80   
+flaresolverr:        http://localhost:8191 
+freshrss:            http://localhost:80   
+gitea:               http://localhost:22   
+grafana:             http://localhost:3000 
+heimdall:            http://localhost:80   
+homeassistant:       (no web interface)
+homer:               http://localhost:8080 
+influxdb:            http://localhost:8086 
+jellyfin:            http://localhost:8096 
+jupyter:             http://localhost:8888 
+kasm-vnc:            http://localhost:3000 
+kopia:               http://localhost:51515
+loki:                http://localhost:3100 
+mariadb:             http://localhost:3306 
+mongodb:             http://localhost:27017
+mosquitto:           http://localhost:1883 
+netdata:             http://localhost:19999
+nextcloud:           http://localhost:80   
+nginx-proxy-manager: http://localhost:80   
+node-exporter:       http://localhost:9100 
+nodered:             http://localhost:1880 
+ollama:              http://localhost:11434
+openwebui:           http://localhost:8080 
+organizr:            http://localhost:80   
+overseerr:           http://localhost:5055 
+paperless:           http://localhost:8000 
+photoprism:          http://localhost:2342 
+plex:                http://localhost:32400
+portainer:           http://localhost:9000 
+postgres:            http://localhost:5432 
+prometheus:          http://localhost:9090 
+promtail:            (no web interface)
+prowlarr:            http://localhost:9696 
+radarr:              http://localhost:7878 
+redis:               http://localhost:6379 
+sonarr:              http://localhost:8989 
+syncthing:           http://localhost:8384 
+tautulli:            http://localhost:8181 
+transmission:        http://localhost:9091 
+uptime-kuma:         http://localhost:3001 
+vaultwarden:         http://localhost:80   
+watchtower:          (no web interface)
+zigbee2mqtt:         http://localhost:8080 
+
+Quick Access:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dashboard:       http://localhost:8090
+VNC Desktop:     http://localhost:3050
+Backup Config:   http://localhost:8200
+
+Documentation:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Main Guide:      ~/HomeLab/docs/HOMELAB_GUIDE.md
+Services List:   ~/HomeLab/docs/SERVICES_LIST.txt
+Backup Guide:    ~/HomeLab/docs/BACKUP_SETUP_GUIDE.md
+
+Important:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️  Duplicati encryption key saved to:
+    ~/HomeLab/docs/DUPLICATI_ENCRYPTION_KEY.txt
+    
+⚠️  SAVE THIS IN 1PASSWORD NOW!
+
+Next Steps:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open Heimdall and add all services
+2. Configure Duplicati backup to pCloud
+3. Setup Home Assistant integrations
+4. Change default passwords
+5. Test backup and restore
+
+Update Services:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Run: ~/HomeLab/scripts/update-all-services.sh
+
+═══════════════════════════════════════════════════════════════
+Your HomeLab is ready to use! 🎉
+═══════════════════════════════════════════════════════════════

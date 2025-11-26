@@ -1,0 +1,48 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              PORT 8087 SERVICE INFORMATION                     ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Service: filebrowser
+Image: filebrowser/filebrowser:latest
+Port: 8087
+URL: http://localhost:8087
+
+Container Details:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            "Env": [
+                "PUID=1000",
+                "PGID=1000",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "UID=1000",
+                "GID=1000"
+            ],
+            "Cmd": null,
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+
+Quick Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+View logs:
+  docker logs filebrowser
+
+View live logs:
+  docker logs filebrowser -f
+
+Access container shell:
+  docker exec -it filebrowser bash
+  # or
+  docker exec -it filebrowser sh
+
+Restart container:
+  docker restart filebrowser
+
+Check compose file:
+  grep -A 20 "filebrowser" ~/HomeLab/Docker/Compose/*.yml
+
+Environment variables:
+  docker inspect filebrowser | grep -A 50 Env
+
+Generated: Mon 17 Nov 2025 16:50:55 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

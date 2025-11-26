@@ -1,0 +1,88 @@
+═══════════════════════════════════════════════════════════════
+  WORKING AdGuard Family/Parental Control Filters
+═══════════════════════════════════════════════════════════════
+
+Add these in AdGuard: Filters → DNS blocklists → Add blocklist
+
+ESSENTIAL FAMILY FILTERS (Add These):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. OISD Big List (Comprehensive - ads + adult)
+   https://big.oisd.nl/
+
+2. Steven Black's Unified Hosts (fakenews + gambling + porn)
+   https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
+
+3. 1Hosts Pro (Adult content blocking)
+   https://o0.pages.dev/Pro/adblock.txt
+
+4. Hagezi DNS Blocklist - Pro Plus
+   https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+
+5. oisd Adult Filter
+   https://nsfw.oisd.nl/
+
+ADDITIONAL PROTECTION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. HaGeZi - The World's Most Abused TLDs
+   https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/spam-tlds-ublock.txt
+
+7. Dandelion Sprout's Anti-Malware List
+   https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
+
+8. The Block List Project - Adult
+   https://blocklistproject.github.io/Lists/adguard/porn-ags.txt
+
+9. The Block List Project - Gambling
+   https://blocklistproject.github.io/Lists/adguard/gambling-ags.txt
+
+10. EasyList Adult
+    https://easylist-downloads.adblockplus.org/easylist_adult.txt
+
+HOW TO ADD IN ADGUARD:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Open AdGuard: http://localhost:8084
+2. Filters → DNS blocklists
+3. Click "Add blocklist" → "Add a custom list"
+4. Paste ONE URL at a time
+5. Click "Add"
+6. Repeat for each filter
+
+ENABLE SAFE BROWSING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Settings → General Settings:
+✅ Use AdGuard browsing security web service
+✅ Use AdGuard parental control web service
+
+ENABLE SAFE SEARCH:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Settings → Parental Control:
+✅ Enable Safe Search on Google
+✅ Enable Safe Search on Bing  
+✅ Enable Safe Search on YouTube
+✅ Enable Safe Search on DuckDuckGo
+
+TESTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After adding filters, test:
+1. Try accessing blocked adult sites (should be blocked)
+2. Check Query Log - should show blocks (red entries)
+3. Try YouTube - should enforce Restricted Mode
+4. Try Google search with adult terms - should show Safe Search
+
+UPDATE FILTERS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Settings → General Settings → Click "Update filters"
+Do this weekly or enable auto-update
+
+═══════════════════════════════════════════════════════════════
+
+Start with filters 1-5 (essential) - that's enough for good protection!
+Add others if you want extra blocking.
+

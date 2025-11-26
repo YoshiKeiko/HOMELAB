@@ -1,0 +1,8 @@
+BACKUP/
+BACKUPS/
+*.tar.gz
+*.tar.gz.enc
+*.enc
+.DS_Store
+.obsidian/cache/
+.trash/

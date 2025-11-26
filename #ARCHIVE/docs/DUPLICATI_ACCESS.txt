@@ -1,0 +1,57 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              DUPLICATI ACCESS INFORMATION                      ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Access Duplicati:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+From M4 Mac:
+  http://localhost:8202
+
+From MacBook Air:
+  http://M4-IP:8202
+
+Password:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Default: None (no password)
+
+To set password:
+  1. Open Duplicati
+  2. Settings (gear icon)
+  3. Scroll to "User Interface"
+  4. Set password
+  5. Save
+  6. Store in 1Password!
+
+Important Keys:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Settings Encryption Key (for container):
+   Stored in 1Password: "Duplicati Settings Encryption Key"
+   
+2. Web Interface Password (optional):
+   Set in Settings, store in 1Password
+   
+3. Backup Encryption Passphrase (critical!):
+   Set when creating backup job
+   MUST store in 1Password - needed for restore!
+
+Quick Commands:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Restart:
+  docker restart duplicati
+
+View logs:
+  docker logs duplicati
+
+Check status:
+  docker ps | grep duplicati
+
+Reset password (this script):
+  ~/reset-duplicati-password.sh
+
+═══════════════════════════════════════════════════════════════
+Last reset: Mon 17 Nov 2025 17:37:54 GMT
+═══════════════════════════════════════════════════════════════

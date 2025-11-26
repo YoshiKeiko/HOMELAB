@@ -1,0 +1,75 @@
+═══════════════════════════════════════════════════════════════
+  HOMELAB INSTALLATION COMPLETE
+═══════════════════════════════════════════════════════════════
+
+Installation Date: Mon 17 Nov 2025 10:34:40 GMT
+Total Services: 47
+
+QUICK START:
+1. Open Heimdall Dashboard: http://localhost:8090
+2. Add all your services to Heimdall for easy access
+3. Configure Home Assistant for smart home devices
+4. Set up Grafana dashboards for monitoring
+
+CREDENTIALS FILE:
+  ~/HomeLab/docs/FINAL_CREDENTIALS.txt
+
+TAILSCALE ACCESS:
+  Mac IP: 100.96.129.29
+  Use this IP on your phone to access services
+
+PORT CHANGES FROM DEFAULTS:
+  - Nextcloud: 8097 (was 8086, conflict with InfluxDB)
+  - FreshRSS: 8098 (was 8096, conflict with Jellyfin)
+
+SERVICES RUNNING: 47
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- paperless
+- freshrss
+- calibre
+- photoprism
+- organizr
+- dashy
+- heimdall
+- homer
+- fail2ban
+- crowdsec
+- vaultwarden
+- nextcloud
+- syncthing
+- duplicati
+- filebrowser
+- grafana
+- node-exporter
+- uptime-kuma
+- cadvisor
+- promtail
+- netdata
+- loki
+- prometheus
+- nodered
+- esphome
+- mosquitto
+- homeassistant
+- zigbee2mqtt
+- openwebui
+- gitea
+- ollama
+- jupyter
+- codeserver
+- transmission
+- plex
+- prowlarr
+- jellyfin
+- overseerr
+- radarr
+- sonarr
+- watchtower
+- portainer
+- influxdb
+- mariadb
+- redis
+- postgres
+- mongodb
+
+═══════════════════════════════════════════════════════════════

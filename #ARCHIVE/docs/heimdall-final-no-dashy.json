@@ -1,0 +1,322 @@
+[
+  {
+    "title": "Portainer",
+    "colour": "#13BEF9",
+    "url": "http://192.168.50.50:9000",
+    "description": "{\"enabled\":\"0\",\"dataonly\":\"1\",\"override_url\":\"http://192.168.50.50:9000\",\"username\":null,\"password\":null,\"ignore_tls\":\"1\"}",
+    "appid": "07b796b3a10eaa8b6f485ed2379187a39400b459",
+    "appdescription": "Docker container management"
+  },
+  {
+    "title": "Nginx Proxy Manager",
+    "colour": "#009639",
+    "url": "http://192.168.50.50:81",
+    "description": null,
+    "appid": null,
+    "appdescription": "Reverse proxy & SSL"
+  },
+  {
+    "title": "AdGuard Home",
+    "colour": "#67B279",
+    "url": "http://192.168.155.2:8084",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"username\":null,\"password\":null}",
+    "appid": "140902edbcc424c09736af28ab2de604c3bde936",
+    "appdescription": "Network-wide ad blocking"
+  },
+  {
+    "title": "Plex",
+    "colour": "#e5a00d",
+    "url": "http://192.168.50.50:32400/web",
+    "description": "{\"enabled\":\"0\",\"dataonly\":\"1\",\"override_url\":null,\"section_1_key\":null,\"section_2_key\":null,\"token\":null,\"ignore_tls\":\"0\"}",
+    "appid": "aebda823a279b219476c565be863d83739999502",
+    "appdescription": "Media server"
+  },
+  {
+    "title": "Jellyfin",
+    "colour": "#00a4dc",
+    "url": "http://192.168.50.50:8096",
+    "description": null,
+    "appid": null,
+    "appdescription": "Alternative media server"
+  },
+  {
+    "title": "Overseerr",
+    "colour": "#4051B5",
+    "url": "http://192.168.50.50:5055",
+    "description": null,
+    "appid": null,
+    "appdescription": "Media requests"
+  },
+  {
+    "title": "Tautulli",
+    "colour": "#FF8C00",
+    "url": "http://192.168.50.50:8181",
+    "description": null,
+    "appid": null,
+    "appdescription": "Plex statistics"
+  },
+  {
+    "title": "Sonarr",
+    "colour": "#3C5260",
+    "url": "http://192.168.50.50:8989",
+    "description": null,
+    "appid": null,
+    "appdescription": "TV show automation"
+  },
+  {
+    "title": "Radarr",
+    "colour": "#FFC230",
+    "url": "http://192.168.50.50:7878",
+    "description": null,
+    "appid": null,
+    "appdescription": "Movie automation"
+  },
+  {
+    "title": "Prowlarr",
+    "colour": "#31A1FF",
+    "url": "http://192.168.50.50:9696",
+    "description": null,
+    "appid": null,
+    "appdescription": "Indexer manager"
+  },
+  {
+    "title": "Transmission",
+    "colour": "#CD0000",
+    "url": "http://192.168.50.50:9091/transmission/web/",
+    "description": null,
+    "appid": null,
+    "appdescription": "Download client"
+  },
+  {
+    "title": "Home Assistant",
+    "colour": "#41bdf5",
+    "url": "http://192.168.50.50:8123",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"token\":null,\"first_stat_label\":null,\"first_stat_template\":null,\"second_stat_label\":null,\"second_stat_template\":null}",
+    "appid": "5c81a4f5ee23ebffa0724a22a040c54e6cb9d7c5",
+    "appdescription": "Smart home hub"
+  },
+  {
+    "title": "Node-RED",
+    "colour": "#8f0000",
+    "url": "http://192.168.50.50:1880",
+    "description": null,
+    "appid": null,
+    "appdescription": "Automation flows"
+  },
+  {
+    "title": "Zigbee2MQTT",
+    "colour": "#FF9900",
+    "url": "http://192.168.50.50:8080",
+    "description": null,
+    "appid": null,
+    "appdescription": "Zigbee bridge"
+  },
+  {
+    "title": "ESPHome",
+    "colour": "#000000",
+    "url": "http://192.168.50.50:6052",
+    "description": null,
+    "appid": null,
+    "appdescription": "ESP device manager"
+  },
+  {
+    "title": "OpenWebUI",
+    "colour": "#8b5cf6",
+    "url": "http://192.168.50.50:3000",
+    "description": null,
+    "appid": "ac0fea3a3005484f1afcda501930eab3f21f8393",
+    "appdescription": "ChatGPT-like interface"
+  },
+  {
+    "title": "Jupyter",
+    "colour": "#f37726",
+    "url": "http://192.168.50.50:8888",
+    "description": null,
+    "appid": null,
+    "appdescription": "Data science notebooks"
+  },
+  {
+    "title": "Grafana",
+    "colour": "#f46800",
+    "url": "http://192.168.50.50:3003",
+    "description": null,
+    "appid": "f519bce8b0ae84d8dbbc0a793bf6a180043be855",
+    "appdescription": "Metrics dashboard"
+  },
+  {
+    "title": "Prometheus",
+    "colour": "#e6522c",
+    "url": "http://192.168.50.50:9090",
+    "description": null,
+    "appid": null,
+    "appdescription": "Metrics collection"
+  },
+  {
+    "title": "Uptime Kuma",
+    "colour": "#5cdd8b",
+    "url": "http://192.168.50.50:3004",
+    "description": null,
+    "appid": null,
+    "appdescription": "Uptime monitoring"
+  },
+  {
+    "title": "Netdata",
+    "colour": "#00ab44",
+    "url": "http://192.168.50.50:19999",
+    "description": null,
+    "appid": null,
+    "appdescription": "Real-time monitoring"
+  },
+  {
+    "title": "cAdvisor",
+    "colour": "#0066FF",
+    "url": "http://192.168.50.50:8085",
+    "description": null,
+    "appid": null,
+    "appdescription": "Container metrics"
+  },
+  {
+    "title": "Loki",
+    "colour": "#f46800",
+    "url": "http://192.168.50.50:3100",
+    "description": null,
+    "appid": null,
+    "appdescription": "Log aggregation"
+  },
+  {
+    "title": "Vaultwarden",
+    "colour": "#175ddc",
+    "url": "http://192.168.50.50:8088",
+    "description": null,
+    "appid": "ddf4f264320af1347ef54d424c60fae3b4fcc448",
+    "appdescription": "Password manager"
+  },
+  {
+    "title": "CrowdSec",
+    "colour": "#2B8FC6",
+    "url": "http://192.168.50.50:8089",
+    "description": null,
+    "appid": null,
+    "appdescription": "Collaborative security"
+  },
+  {
+    "title": "Nextcloud",
+    "colour": "#0082c9",
+    "url": "http://192.168.50.50:8097",
+    "description": "{\"enabled\":\"0\",\"override_url\":null,\"username\":null,\"password\":null}",
+    "appid": "f2baa52d02ca888455ce47823f47bf372d5eecb3",
+    "appdescription": "Cloud storage"
+  },
+  {
+    "title": "File Browser",
+    "colour": "#4285F4",
+    "url": "http://192.168.50.50:8087",
+    "description": null,
+    "appid": null,
+    "appdescription": "Web file manager"
+  },
+  {
+    "title": "Syncthing",
+    "colour": "#0891d1",
+    "url": "http://192.168.50.50:8384",
+    "description": null,
+    "appid": null,
+    "appdescription": "File synchronization"
+  },
+  {
+    "title": "PhotoPrism",
+    "colour": "#4DB6AC",
+    "url": "http://192.168.50.50:2342",
+    "description": null,
+    "appid": null,
+    "appdescription": "Photo management"
+  },
+  {
+    "title": "Kopia",
+    "colour": "#3498DB",
+    "url": "http://192.168.50.50:8202/repo",
+    "description": null,
+    "appid": "22b161d97fbf69f88c548fa1dc938f0840abfd58",
+    "appdescription": "Backup solution"
+  },
+  {
+    "title": "Paperless-ngx",
+    "colour": "#28a745",
+    "url": "http://192.168.50.50:8093",
+    "description": null,
+    "appid": null,
+    "appdescription": "Document management"
+  },
+  {
+    "title": "FreshRSS",
+    "colour": "#0091DC",
+    "url": "http://192.168.50.50:8098",
+    "description": null,
+    "appid": null,
+    "appdescription": "RSS reader"
+  },
+  {
+    "title": "Calibre",
+    "colour": "#333333",
+    "url": "http://192.168.50.50:8094",
+    "description": null,
+    "appid": null,
+    "appdescription": "E-book management"
+  },
+  {
+    "title": "Code Server",
+    "colour": "#007acc",
+    "url": "http://192.168.50.50:8443",
+    "description": null,
+    "appid": null,
+    "appdescription": "VS Code in browser"
+  },
+  {
+    "title": "Gitea",
+    "colour": "#609926",
+    "url": "http://192.168.50.50:3001",
+    "description": null,
+    "appid": null,
+    "appdescription": "Git server"
+  },
+  {
+    "title": "Heimdall",
+    "colour": "#3367D6",
+    "url": "http://192.168.50.50:8090",
+    "description": null,
+    "appid": null,
+    "appdescription": "This dashboard"
+  },
+  {
+    "title": "Homer",
+    "colour": "#3367d6",
+    "url": "http://192.168.50.50:8091",
+    "description": null,
+    "appid": null,
+    "appdescription": "Simple dashboard"
+  },
+  {
+    "title": "Organizr",
+    "colour": "#2F3337",
+    "url": "http://192.168.50.50:8092",
+    "description": null,
+    "appid": null,
+    "appdescription": "Unified dashboard"
+  },
+  {
+    "title": "VNC Desktop",
+    "colour": "#E95420",
+    "url": "http://192.168.50.50:3050",
+    "description": null,
+    "appid": null,
+    "appdescription": "Ubuntu desktop in browser"
+  },
+  {
+    "title": "InfluxDB",
+    "colour": "#22adf6",
+    "url": "http://192.168.50.50:8086",
+    "description": null,
+    "appid": null,
+    "appdescription": "Time-series database"
+  }
+]

@@ -1,0 +1,43 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SERVICES ONLINE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Plex - http://localhost:32400/web
+✓ Jellyfin - http://localhost:8096
+✓ Radarr - http://localhost:7878
+✓ Sonarr - Port 8989 (needs config)
+✓ Prowlarr - http://localhost:9696
+✓ Overseerr - http://localhost:5055
+✓ Transmission - Port 9091 (needs config)
+✓ Tautulli - http://localhost:8181
+✓ Home Assistant - http://localhost:8123
+✓ Node-RED - http://localhost:1880
+✓ ESPHome - http://localhost:6052
+✓ Zigbee2MQTT - http://localhost:8080
+✓ Grafana - http://localhost:3000
+✓ Prometheus - http://localhost:9090
+✓ Netdata - http://localhost:19999
+✓ Uptime Kuma - http://localhost:3001
+✓ cAdvisor - http://localhost:8085
+✓ Loki - Port 3100 (needs config)
+✓ InfluxDB - http://localhost:8086
+✓ Heimdall - http://localhost:8090
+✓ Homer - http://localhost:8091
+✓ Dashy - Port 4000 (needs config)
+✓ Organizr - http://localhost:8092
+✓ Nextcloud - http://localhost:8080
+✓ Kopia - Port 8202 (needs config)
+✓ Syncthing - http://localhost:8384
+✓ File Browser - http://localhost:8087
+✓ PhotoPrism - Port 2342 (needs config)
+✓ Gitea - Port 3002 (needs config)
+✓ Code Server - http://localhost:8443
+✓ Jupyter - http://localhost:8888
+✓ CrowdSec - Port 8089 (needs config)
+✓ Nginx Proxy Manager - http://localhost:81
+✓ Portainer - http://localhost:9000
+✓ VNC Desktop - http://localhost:3050
+✓ OpenWebUI - http://localhost:3003
+✓ Mosquitto MQTT - Port 1883
+
+Total Online: 37 services

@@ -1,0 +1,42 @@
+services:
+  # Guacamole Database
+  guacamole-db:
+    image: postgres:15-alpine
+    container_name: guacamole-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=guacamole_db
+      - POSTGRES_USER=guacamole_user
+      - POSTGRES_PASSWORD=GuacamoleSecure2024!
+      - PGDATA=/var/lib/postgresql/data/guacamole
+    volumes:
+      - /Users/homelab/HomeLab/Docker/Data/guacamole/postgresql:/var/lib/postgresql/data
+
+  # Guacamole Daemon
+  guacd:
+    image: guacamole/guacd:latest
+    container_name: guacd
+    restart: unless-stopped
+    volumes:
+      - /Users/homelab/HomeLab/Docker/Data/guacamole/drive:/drive
+      - /Users/homelab/HomeLab/Docker/Data/guacamole/record:/record
+
+  # Guacamole Web Interface
+  guacamole:
+    image: guacamole/guacamole:latest
+    container_name: guacamole
+    restart: unless-stopped
+    ports:
+      - "8090:8080"
+    environment:
+      - GUACD_HOSTNAME=guacd
+      - POSTGRES_HOSTNAME=guacamole-db
+      - POSTGRES_DATABASE=guacamole_db
+      - POSTGRES_USER=guacamole_user
+      - POSTGRES_PASSWORD=GuacamoleSecure2024!
+      - GUACAMOLE_HOME=/etc/guacamole
+    volumes:
+      - /Users/homelab/HomeLab/Docker/Data/guacamole/config:/etc/guacamole
+    depends_on:
+      - guacd
+      - guacamole-db
