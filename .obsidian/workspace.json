@@ -185,6 +185,8 @@
   },
   "active": "cffa748007ad1ea3",
   "lastOpenFiles": [
+    "docs/BOOKMARKS_REMOTE.html",
+    "docs/BOOKMARKS REMOTE.html",
     "CLAUDE_TEST.md",
     "scripts/sync_vaults.sh",
     "KEY_BACKUP",
@@ -218,8 +220,6 @@
     "#ARCHIVE/install/Day-06-Proxmox-Hypervisor.md",
     "#ARCHIVE/install/# HomeLab Service Directory.md",
     "#ARCHIVE/install/Day-05-Remote-Access-RustDesk-Guacamole.md",
-    "#ARCHIVE/install/Day-05-BONUS-Remote-Access-CORRECTED.md",
-    "#ARCHIVE/install",
-    "#ARCHIVE/HEIMDALL_CLEAN_20251118_173755.json"
+    "#ARCHIVE/install"
   ]
 }
