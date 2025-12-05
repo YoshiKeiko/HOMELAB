@@ -12,6 +12,12 @@ How to backup all configs, containers, and Obsidian vault to cloud storage.
 **Time:** 10 minutes  
 **Frequency:** Weekly recommended
 
+### [[RCLONE_GUIDE|Complete rclone Guide]]
+Cloud storage sync, backup, and migration using rclone. Includes Google Drive download script.
+
+**Time:** Variable  
+**Use cases:** Cloud migration, sync, backup, mount cloud storage
+
 ### [[Automated-Backups|Setup Automated Daily Backups]]
 Configure cron job for automatic nightly backups.
 
@@ -297,5 +303,5 @@ This vault is a living document - keep it updated as you learn.
 
 ---
 
-*Total Guides: 30+*  
-*Last Updated: November 19, 2025*
+*Total Guides: 31+*  
+*Last Updated: December 4, 2025*
