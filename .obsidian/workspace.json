@@ -185,6 +185,13 @@
   },
   "active": "cffa748007ad1ea3",
   "lastOpenFiles": [
+    "docs/SESSION_2025-12-05_UPDATES.md",
+    "docs/BOOKMARKS.html.bak",
+    "01-Services/Frigate-NVR.md",
+    "BACKUP/vault.tar.gz [conflicted 12].enc",
+    "BACKUP/last_backup [conflicted 12].txt",
+    "BACKUP/last_backup.txt",
+    "BACKUP/vault.tar.gz.enc",
     "docs/BOOKMARKS_REMOTE.html",
     "docs/BOOKMARKS REMOTE.html",
     "CLAUDE_TEST.md",
@@ -193,10 +200,6 @@
     "untitled folder",
     "00-START-HERE/Quick-Reference.md",
     "**🔐 Obsidian Multi‑Vault Backup System – End‑to‑End Guide**.md",
-    "#ARCHIVE/STEVE-HOMELAB-COMPLETE-ALL-14-VOLUMES",
-    "#ARCHIVE/SERVICES_ONLINE.txt",
-    "#ARCHIVE/SERVICES_OFFLINE.txt",
-    "#ARCHIVE/SERVICE_CHECK_RESULTS_20251118_173750.txt",
     "#ARCHIVE/install/V2.0-UPDATE-SUMMARY.md",
     "#ARCHIVE/install/SERVICE_REFERENCE.md",
     "#ARCHIVE/install/SERVICE_REFERENCE_DETAILED.md",
@@ -206,7 +209,6 @@
     "#ARCHIVE/install/REF-Proxmox-Quick-Reference.md",
     "#ARCHIVE/install/MASTER-HomeLab-Complete.md",
     "#ARCHIVE/install/INDEX-Second-Brain.md",
-    "#ARCHIVE/install/HomeLab-Master-Guide.pdf",
     "#ARCHIVE/install/Day-16-Network-Diagrams-Final.md",
     "#ARCHIVE/install/Day-15-Maintenance-and-RMM.md",
     "#ARCHIVE/install/Day-14-Backup-Strategy.md",
@@ -217,9 +219,6 @@
     "#ARCHIVE/install/Day-09-Media-Stack-Plex.md",
     "#ARCHIVE/install/Day-08-Ubuntu-Kali-VMs.md",
     "#ARCHIVE/install/Day-07-Windows-11-VM.md",
-    "#ARCHIVE/install/Day-06-Proxmox-Hypervisor.md",
-    "#ARCHIVE/install/# HomeLab Service Directory.md",
-    "#ARCHIVE/install/Day-05-Remote-Access-RustDesk-Guacamole.md",
-    "#ARCHIVE/install"
+    "#ARCHIVE/install/Day-06-Proxmox-Hypervisor.md"
   ]
 }

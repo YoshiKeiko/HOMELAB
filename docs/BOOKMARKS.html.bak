@@ -600,12 +600,6 @@
                     <div class="service-port">:8099</div>
                     <div class="service-desc">Camera Recording</div>
                 </a>
-                <a href="http://localhost:5001" class="service security" data-tags="frigate nvr cameras ai detection cats person">
-                    <button class="copy-btn" onclick="event.preventDefault();copyUrl('http://localhost:5001')">Copy</button>
-                    <div class="service-name">Frigate NVR</div>
-                    <div class="service-port">:5001</div>
-                    <div class="service-desc">AI Camera Detection</div>
-                </a>
             </div>
         </div>
 
@@ -734,7 +728,7 @@
         </div>
 
         <footer>
-            <p>Last updated: December 5, 2025 | Press <kbd>/</kbd> to search | Click "Copy" to copy URL</p>
+            <p>Last updated: November 26, 2025 | Press <kbd>/</kbd> to search | Click "Copy" to copy URL</p>
         </footer>
     </div>
 

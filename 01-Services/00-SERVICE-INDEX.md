@@ -161,3 +161,12 @@ Last checked: [[Uptime-Kuma]]
 
 *Total Services: 39*  
 *Last Updated: November 19, 2025*
+
+## Recently Added (Dec 2025)
+
+| Service | Port | Category | Status |
+|---------|------|----------|--------|
+| Frigate NVR | 5001 | Security | ✅ Active |
+| HACS | - | Home Assistant | ✅ Active |
+| Tapo Integration | - | Home Assistant | ✅ Active |
+
