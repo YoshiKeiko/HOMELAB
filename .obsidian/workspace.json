@@ -185,6 +185,10 @@
   },
   "active": "cffa748007ad1ea3",
   "lastOpenFiles": [
+    "BACKUP/vault.tar.gz [conflicted 15].enc",
+    "BACKUP/last_backup [conflicted 15].txt",
+    "BACKUP/last_backup.txt",
+    "BACKUP/vault.tar.gz.enc",
     "docs/NETWORK_INVENTORY_20251206.md",
     "docs/CREDENTIALS_AND_STATUS_20251206.md",
     "OVERVIEW.md",
@@ -208,8 +212,6 @@
     "01-Services/Stirling-PDF.md",
     "BACKUP/vault.tar.gz [conflicted 14].enc",
     "BACKUP/last_backup [conflicted 14].txt",
-    "BACKUP/last_backup.txt",
-    "BACKUP/vault.tar.gz.enc",
     "docs/SERVICE_ISSUES_20251206.md",
     "BACKUP/vault.tar.gz [conflicted 13].enc",
     "BACKUP/last_backup [conflicted 13].txt",
@@ -218,8 +220,6 @@
     "01-Services/Frigate-NVR.md",
     "BACKUP/vault.tar.gz [conflicted 12].enc",
     "BACKUP/last_backup [conflicted 12].txt",
-    "docs/BOOKMARKS_REMOTE.html",
-    "CLAUDE_TEST.md",
-    "00-START-HERE/Quick-Reference.md"
+    "CLAUDE_TEST.md"
   ]
 }
