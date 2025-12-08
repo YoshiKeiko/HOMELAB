@@ -3,618 +3,706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steve's HomeLab Command Center</title>
+    <title>HomeLab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        :root {
+            --bg-primary: #030014;
+            --bg-secondary: #0a0a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border: rgba(255,255,255,0.08);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
             min-height: 100vh;
-            padding: 2rem 1rem;
-            position: relative;
+            color: var(--text-primary);
             overflow-x: hidden;
         }
-        
-        body::before {
-            content: '';
+
+        /* Stunning animated background */
+        .bg-effects {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%);
-            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
         }
-        
+
+        .bg-effects::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 40% 60%, rgba(6, 182, 212, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.2) 0%, transparent 40%);
+            animation: bgRotate 30s linear infinite;
+        }
+
+        @keyframes bgRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            top: -200px;
+            left: -200px;
+            opacity: 0.4;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #06b6d4, #22c55e);
+            bottom: -150px;
+            right: -150px;
+            opacity: 0.3;
+            animation-delay: -10s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f97316, #eab308);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(30px, 50px) scale(1.05); }
+        }
+
         .container {
             max-width: 1600px;
             margin: 0 auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 25%, #ec4899 50%, #06b6d4 75%, #22c55e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            letter-spacing: -2px;
+            text-shadow: 0 0 80px rgba(167, 139, 250, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+
+        /* Search */
+        .search-wrapper {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7c3aed;
+            font-size: 1.2rem;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 20px 24px 20px 60px;
+            border-radius: 20px;
+            border: 2px solid rgba(124, 58, 237, 0.3);
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(20px);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-wrapper input::placeholder { color: var(--text-secondary); }
+        
+        .search-wrapper input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 
+                0 0 40px rgba(124, 58, 237, 0.4),
+                0 0 80px rgba(124, 58, 237, 0.2),
+                inset 0 0 20px rgba(124, 58, 237, 0.1);
+        }
+
+        .search-hint {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Filter Pills */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+
+        .filter-pill {
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-pill::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--pill-color-1, #7c3aed), var(--pill-color-2, #ec4899));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .filter-pill span {
             position: relative;
             z-index: 1;
         }
-        
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        
-        h1 {
+
+        .filter-pill:hover {
+            transform: translateY(-3px) scale(1.05);
             color: white;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1);
-            letter-spacing: -1px;
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.4);
         }
-        
-        .subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-        }
-        
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+
+        .filter-pill:hover::before { opacity: 1; }
+
+        .filter-pill.active {
             color: white;
-            font-weight: 500;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.5);
         }
-        
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .quick-access {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .quick-link {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 16px;
-            text-decoration: none;
-            color: #1e3c72;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quick-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .quick-link:hover::before {
-            left: 100%;
-        }
-        
-        .quick-link:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        
-        .quick-icon {
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-        
+
+        .filter-pill.active::before { opacity: 1; }
+
+        .filter-pill i { margin-right: 8px; }
+
+        /* Filter colors */
+        .filter-pill[data-filter="media"] { --pill-color-1: #ef4444; --pill-color-2: #f97316; }
+        .filter-pill[data-filter="gaming"] { --pill-color-1: #a855f7; --pill-color-2: #6366f1; }
+        .filter-pill[data-filter="smart"] { --pill-color-1: #06b6d4; --pill-color-2: #0ea5e9; }
+        .filter-pill[data-filter="monitor"] { --pill-color-1: #3b82f6; --pill-color-2: #6366f1; }
+        .filter-pill[data-filter="security"] { --pill-color-1: #8b5cf6; --pill-color-2: #a855f7; }
+        .filter-pill[data-filter="storage"] { --pill-color-1: #f59e0b; --pill-color-2: #eab308; }
+        .filter-pill[data-filter="ai"] { --pill-color-1: #10b981; --pill-color-2: #22c55e; }
+        .filter-pill[data-filter="tools"] { --pill-color-1: #14b8a6; --pill-color-2: #06b6d4; }
+        .filter-pill[data-filter="home"] { --pill-color-1: #ec4899; --pill-color-2: #f472b6; }
+
+        /* Category Sections */
         .category {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            animation: fadeInUp 0.8s ease-out both;
+            margin-bottom: 60px;
         }
-        
-        .category:nth-child(2) { animation-delay: 0.1s; }
-        .category:nth-child(3) { animation-delay: 0.2s; }
-        .category:nth-child(4) { animation-delay: 0.3s; }
-        .category:nth-child(5) { animation-delay: 0.4s; }
-        
+
         .category-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid transparent;
-            background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
-            background-clip: text;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 10px 30px var(--icon-shadow, rgba(124, 58, 237, 0.4));
+        }
+
+        .category-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cat-color-1, #fff), var(--cat-color-2, #a78bfa));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            border-image: linear-gradient(to right, #667eea 0%, #764ba2 100%) 1;
         }
-        
-        .category-header h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+
+        .category-count {
+            margin-left: auto;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
         }
-        
-        .category-icon {
-            font-size: 2rem;
-        }
-        
-        .services {
+
+        /* Service Grid */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
-        
-        .service {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem 1.25rem;
-            border-radius: 12px;
+
+        /* Service Cards */
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
             text-decoration: none;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        
-        .service::after {
-            content: '→';
+
+        .card::before {
+            content: '';
             position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%) translateX(10px);
+            inset: 0;
+            background: linear-gradient(135deg, var(--card-color-1, #7c3aed), var(--card-color-2, #ec4899));
             opacity: 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: all 0.3s;
+            transition: opacity 0.4s ease;
         }
-        
-        .service:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-color-1, #7c3aed), var(--card-color-2, #ec4899));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
-        
-        .service:hover::after {
-            opacity: 1;
-            transform: translateY(-50%) translateX(0);
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: transparent;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.5),
+                0 0 100px var(--card-glow, rgba(124, 58, 237, 0.3));
         }
-        
-        .service-name {
-            font-size: 1.2rem;
+
+        .card:hover::before { opacity: 0.1; }
+        .card:hover::after { transform: scaleX(1); }
+
+        .card-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--card-color-1, #7c3aed), var(--card-color-2, #ec4899));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px var(--card-glow, rgba(124, 58, 237, 0.4));
+        }
+
+        .card-info { flex: 1; min-width: 0; }
+
+        .card-title {
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
         }
-        
-        .service-desc {
-            font-size: 0.85rem;
-            opacity: 0.95;
-            line-height: 1.4;
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
-        
-        .service-port {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            font-family: 'Monaco', 'Courier New', monospace;
-            background: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            align-self: flex-start;
+
+        .card-port {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--card-color-1, #a78bfa);
+            font-weight: 600;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
         }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        footer {
+
+        /* Category & Card Colors */
+        .cat-media { --card-color-1: #ef4444; --card-color-2: #f97316; --card-glow: rgba(239, 68, 68, 0.3); }
+        .cat-gaming { --card-color-1: #a855f7; --card-color-2: #6366f1; --card-glow: rgba(168, 85, 247, 0.3); }
+        .cat-smart { --card-color-1: #06b6d4; --card-color-2: #0ea5e9; --card-glow: rgba(6, 182, 212, 0.3); }
+        .cat-monitor { --card-color-1: #3b82f6; --card-color-2: #6366f1; --card-glow: rgba(59, 130, 246, 0.3); }
+        .cat-security { --card-color-1: #8b5cf6; --card-color-2: #a855f7; --card-glow: rgba(139, 92, 246, 0.3); }
+        .cat-storage { --card-color-1: #f59e0b; --card-color-2: #eab308; --card-glow: rgba(245, 158, 11, 0.3); }
+        .cat-ai { --card-color-1: #10b981; --card-color-2: #22c55e; --card-glow: rgba(16, 185, 129, 0.3); }
+        .cat-tools { --card-color-1: #14b8a6; --card-color-2: #06b6d4; --card-glow: rgba(20, 184, 166, 0.3); }
+        .cat-home { --card-color-1: #ec4899; --card-color-2: #f472b6; --card-glow: rgba(236, 72, 153, 0.3); }
+        .cat-notify { --card-color-1: #f97316; --card-color-2: #fb923c; --card-glow: rgba(249, 115, 22, 0.3); }
+        .cat-dash { --card-color-1: #eab308; --card-color-2: #facc15; --card-glow: rgba(234, 179, 8, 0.3); }
+
+        .category[data-category="media"] { --cat-color-1: #ef4444; --cat-color-2: #f97316; --icon-shadow: rgba(239, 68, 68, 0.4); }
+        .category[data-category="gaming"] { --cat-color-1: #a855f7; --cat-color-2: #6366f1; --icon-shadow: rgba(168, 85, 247, 0.4); }
+        .category[data-category="smart"] { --cat-color-1: #06b6d4; --cat-color-2: #0ea5e9; --icon-shadow: rgba(6, 182, 212, 0.4); }
+        .category[data-category="monitor"] { --cat-color-1: #3b82f6; --cat-color-2: #6366f1; --icon-shadow: rgba(59, 130, 246, 0.4); }
+        .category[data-category="security"] { --cat-color-1: #8b5cf6; --cat-color-2: #a855f7; --icon-shadow: rgba(139, 92, 246, 0.4); }
+        .category[data-category="storage"] { --cat-color-1: #f59e0b; --cat-color-2: #eab308; --icon-shadow: rgba(245, 158, 11, 0.4); }
+        .category[data-category="ai"] { --cat-color-1: #10b981; --cat-color-2: #22c55e; --icon-shadow: rgba(16, 185, 129, 0.4); }
+        .category[data-category="tools"] { --cat-color-1: #14b8a6; --cat-color-2: #06b6d4; --icon-shadow: rgba(20, 184, 166, 0.4); }
+        .category[data-category="home"] { --cat-color-1: #ec4899; --cat-color-2: #f472b6; --icon-shadow: rgba(236, 72, 153, 0.4); }
+        .category[data-category="dash"] { --cat-color-1: #eab308; --cat-color-2: #facc15; --icon-shadow: rgba(234, 179, 8, 0.4); }
+
+        .category-icon.media { background: linear-gradient(135deg, #ef4444, #f97316); }
+        .category-icon.gaming { background: linear-gradient(135deg, #a855f7, #6366f1); }
+        .category-icon.smart { background: linear-gradient(135deg, #06b6d4, #0ea5e9); }
+        .category-icon.monitor { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+        .category-icon.security { background: linear-gradient(135deg, #8b5cf6, #a855f7); }
+        .category-icon.storage { background: linear-gradient(135deg, #f59e0b, #eab308); }
+        .category-icon.ai { background: linear-gradient(135deg, #10b981, #22c55e); }
+        .category-icon.tools { background: linear-gradient(135deg, #14b8a6, #06b6d4); }
+        .category-icon.home { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .category-icon.dash { background: linear-gradient(135deg, #eab308, #facc15); }
+
+        /* Footer */
+        .footer {
             text-align: center;
-            color: rgba(255,255,255,0.7);
-            padding: 3rem 0 1rem;
+            padding: 50px 20px;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
-        
+
+        .footer kbd {
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: inherit;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .services {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1rem;
-            }
-            .quick-access {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 20px; }
+            .header h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+            .filters { gap: 8px; }
+            .filter-pill { padding: 10px 16px; font-size: 0.85rem; }
+            .orb { display: none; }
         }
     </style>
 </head>
 <body>
+    <div class="bg-effects">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    
     <div class="container">
-        <header>
-            <h1>🏠 Steve's HomeLab Command Center</h1>
-            <p class="subtitle">Enterprise-Grade Infrastructure • 39 Services Running</p>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>All Systems Operational</span>
-            </div>
+        <header class="header">
+            <h1>HomeLab</h1>
         </header>
 
-        <div class="quick-access">
-            <a href="http://192.168.50.50:8090" class="quick-link">
-                <span class="quick-icon">📊</span>
-                <span>Heimdall Dashboard</span>
-            </a>
-            <a href="http://192.168.50.50:9000" class="quick-link">
-                <span class="quick-icon">🐳</span>
-                <span>Docker Control (Portainer)</span>
-            </a>
-            <a href="http://192.168.50.50:32400/web" class="quick-link">
-                <span class="quick-icon">🎬</span>
-                <span>Plex Media Server</span>
-            </a>
-            <a href="http://192.168.50.50:8123" class="quick-link">
-                <span class="quick-icon">🏡</span>
-                <span>Home Assistant</span>
-            </a>
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search" placeholder="Search services..." autocomplete="off">
+            <span class="search-hint">/</span>
         </div>
 
-        <div class="category">
-            <div class="category-header">
-                <span class="category-icon">🔧</span>
-                <h2>Infrastructure & Network</h2>
-            </div>
-            <div class="services">
-                <a href="http://192.168.50.50:9000" class="service">
-                    <span class="service-name">Portainer</span>
-                    <span class="service-desc">Docker container management</span>
-                    <span class="service-port">:9000</span>
-                </a>
-                <a href="http://192.168.50.50:81" class="service">
-                    <span class="service-name">Nginx Proxy Manager</span>
-                    <span class="service-desc">Reverse proxy & SSL certificates</span>
-                    <span class="service-port">:81</span>
-                </a>
-                <a href="http://192.168.155.2:8084" class="service">
-                    <span class="service-name">AdGuard Home</span>
-                    <span class="service-desc">Network-wide ad blocking & DNS</span>
-                    <span class="service-port">:8084</span>
-                </a>
-            </div>
+        <div class="filters">
+            <button class="filter-pill active" data-filter="all"><span><i class="fas fa-globe"></i>All</span></button>
+            <button class="filter-pill" data-filter="media"><span><i class="fas fa-film"></i>Media</span></button>
+            <button class="filter-pill" data-filter="gaming"><span><i class="fas fa-gamepad"></i>Gaming</span></button>
+            <button class="filter-pill" data-filter="smart"><span><i class="fas fa-home"></i>Smart Home</span></button>
+            <button class="filter-pill" data-filter="monitor"><span><i class="fas fa-chart-line"></i>Monitoring</span></button>
+            <button class="filter-pill" data-filter="security"><span><i class="fas fa-shield-alt"></i>Security</span></button>
+            <button class="filter-pill" data-filter="storage"><span><i class="fas fa-hdd"></i>Storage</span></button>
+            <button class="filter-pill" data-filter="ai"><span><i class="fas fa-robot"></i>AI & Dev</span></button>
+            <button class="filter-pill" data-filter="tools"><span><i class="fas fa-wrench"></i>Tools</span></button>
+            <button class="filter-pill" data-filter="home"><span><i class="fas fa-house-user"></i>Home</span></button>
         </div>
 
-        <div class="category">
+        <!-- Media -->
+        <section class="category" data-category="media">
             <div class="category-header">
-                <span class="category-icon">🎬</span>
-                <h2>Media Entertainment</h2>
+                <div class="category-icon media"><i class="fas fa-film"></i></div>
+                <h2>Media & Entertainment</h2>
+                <span class="category-count">15 services</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:32400/web" class="service">
-                    <span class="service-name">Plex</span>
-                    <span class="service-desc">Personal Netflix - stream anywhere</span>
-                    <span class="service-port">:32400</span>
-                </a>
-                <a href="http://192.168.50.50:8096" class="service">
-                    <span class="service-name">Jellyfin</span>
-                    <span class="service-desc">Open-source media server</span>
-                    <span class="service-port">:8096</span>
-                </a>
-                <a href="http://192.168.50.50:5055" class="service">
-                    <span class="service-name">Overseerr</span>
-                    <span class="service-desc">Media requests & discovery</span>
-                    <span class="service-port">:5055</span>
-                </a>
-                <a href="http://192.168.50.50:8181" class="service">
-                    <span class="service-name">Tautulli</span>
-                    <span class="service-desc">Plex usage statistics</span>
-                    <span class="service-port">:8181</span>
-                </a>
-                <a href="http://192.168.50.50:8989" class="service">
-                    <span class="service-name">Sonarr</span>
-                    <span class="service-desc">TV show automation</span>
-                    <span class="service-port">:8989</span>
-                </a>
-                <a href="http://192.168.50.50:7878" class="service">
-                    <span class="service-name">Radarr</span>
-                    <span class="service-desc">Movie automation</span>
-                    <span class="service-port">:7878</span>
-                </a>
-                <a href="http://192.168.50.50:9696" class="service">
-                    <span class="service-name">Prowlarr</span>
-                    <span class="service-desc">Indexer management</span>
-                    <span class="service-port">:9696</span>
-                </a>
-                <a href="http://192.168.50.50:9091/transmission/web/" class="service">
-                    <span class="service-name">Transmission</span>
-                    <span class="service-desc">Download client</span>
-                    <span class="service-port">:9091</span>
-                </a>
+            <div class="grid">
+                <a href="https://app.plex.tv" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-play"></i></div><div class="card-info"><div class="card-title">Plex</div><div class="card-desc">Premium media streaming</div><div class="card-port">app.plex.tv</div></div></div></a>
+                <a href="http://192.168.50.50:8096" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-photo-video"></i></div><div class="card-info"><div class="card-title">Jellyfin</div><div class="card-desc">Open-source media server</div><div class="card-port">:8096</div></div></div></a>
+                <a href="http://192.168.50.50:8989" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-tv"></i></div><div class="card-info"><div class="card-title">Sonarr</div><div class="card-desc">TV show management</div><div class="card-port">:8989</div></div></div></a>
+                <a href="http://192.168.50.50:7878" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-film"></i></div><div class="card-info"><div class="card-title">Radarr</div><div class="card-desc">Movie management</div><div class="card-port">:7878</div></div></div></a>
+                <a href="http://192.168.50.50:9696" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-search"></i></div><div class="card-info"><div class="card-title">Prowlarr</div><div class="card-desc">Indexer manager</div><div class="card-port">:9696</div></div></div></a>
+                <a href="http://192.168.50.50:6767" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-closed-captioning"></i></div><div class="card-info"><div class="card-title">Bazarr</div><div class="card-desc">Subtitle management</div><div class="card-port">:6767</div></div></div></a>
+                <a href="http://192.168.50.50:5055" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-hand-pointer"></i></div><div class="card-info"><div class="card-title">Overseerr</div><div class="card-desc">Media requests</div><div class="card-port">:5055</div></div></div></a>
+                <a href="http://192.168.50.50:8181" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-chart-bar"></i></div><div class="card-info"><div class="card-title">Tautulli</div><div class="card-desc">Plex statistics</div><div class="card-port">:8181</div></div></div></a>
+                <a href="http://192.168.50.50:9091" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-download"></i></div><div class="card-info"><div class="card-title">Transmission</div><div class="card-desc">BitTorrent client</div><div class="card-port">:9091</div></div></div></a>
+                <a href="http://192.168.50.50:13378" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-headphones"></i></div><div class="card-info"><div class="card-title">Audiobookshelf</div><div class="card-desc">Audiobooks & podcasts</div><div class="card-port">:13378</div></div></div></a>
+                <a href="http://192.168.50.50:4533" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-music"></i></div><div class="card-info"><div class="card-title">Navidrome</div><div class="card-desc">Music streaming</div><div class="card-port">:4533</div></div></div></a>
+                <a href="http://192.168.50.50:25600" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-book-open"></i></div><div class="card-info"><div class="card-title">Komga</div><div class="card-desc">Comics & manga</div><div class="card-port">:25600</div></div></div></a>
+                <a href="http://192.168.50.50:5004" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-book"></i></div><div class="card-info"><div class="card-title">Kavita</div><div class="card-desc">eBooks reader</div><div class="card-port">:5004</div></div></div></a>
+                <a href="http://192.168.50.50:5800" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-compact-disc"></i></div><div class="card-info"><div class="card-title">MakeMKV</div><div class="card-desc">DVD/Blu-ray ripping</div><div class="card-port">:5800</div></div></div></a>
+                <a href="http://192.168.50.50:8191" class="card cat-media"><div class="card-content"><div class="card-icon"><i class="fas fa-cloud"></i></div><div class="card-info"><div class="card-title">FlareSolverr</div><div class="card-desc">Cloudflare bypass</div><div class="card-port">:8191</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
+        <!-- Gaming -->
+        <section class="category" data-category="gaming">
             <div class="category-header">
-                <span class="category-icon">🏡</span>
-                <h2>Smart Home Automation</h2>
+                <div class="category-icon gaming"><i class="fas fa-gamepad"></i></div>
+                <h2>Gaming</h2>
+                <span class="category-count">1 service</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:8123" class="service">
-                    <span class="service-name">Home Assistant</span>
-                    <span class="service-desc">Central smart home hub</span>
-                    <span class="service-port">:8123</span>
-                </a>
-                <a href="http://192.168.50.50:1880" class="service">
-                    <span class="service-name">Node-RED</span>
-                    <span class="service-desc">Visual automation builder</span>
-                    <span class="service-port">:1880</span>
-                </a>
-                <a href="http://192.168.50.50:8080" class="service">
-                    <span class="service-name">Zigbee2MQTT</span>
-                    <span class="service-desc">Zigbee device bridge</span>
-                    <span class="service-port">:8080</span>
-                </a>
-                <a href="http://192.168.50.50:6052" class="service">
-                    <span class="service-name">ESPHome</span>
-                    <span class="service-desc">ESP32/ESP8266 firmware</span>
-                    <span class="service-port">:6052</span>
-                </a>
+            <div class="grid">
+                <a href="http://192.168.50.50:3090" class="card cat-gaming"><div class="card-content"><div class="card-icon"><i class="fas fa-gamepad"></i></div><div class="card-info"><div class="card-title">RetroArch</div><div class="card-desc">Retro gaming emulator</div><div class="card-port">:3090</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
+        <!-- Smart Home -->
+        <section class="category" data-category="smart">
             <div class="category-header">
-                <span class="category-icon">🤖</span>
+                <div class="category-icon smart"><i class="fas fa-home"></i></div>
+                <h2>Smart Home</h2>
+                <span class="category-count">4 services</span>
+            </div>
+            <div class="grid">
+                <a href="http://192.168.50.50:8123" class="card cat-smart"><div class="card-content"><div class="card-icon"><i class="fas fa-home"></i></div><div class="card-info"><div class="card-title">Home Assistant</div><div class="card-desc">Smart home hub</div><div class="card-port">:8123</div></div></div></a>
+                <a href="http://192.168.50.50:1880" class="card cat-smart"><div class="card-content"><div class="card-icon"><i class="fas fa-project-diagram"></i></div><div class="card-info"><div class="card-title">Node-RED</div><div class="card-desc">Flow automation</div><div class="card-port">:1880</div></div></div></a>
+                <a href="http://192.168.50.50:8080" class="card cat-smart"><div class="card-content"><div class="card-icon"><i class="fas fa-broadcast-tower"></i></div><div class="card-info"><div class="card-title">Zigbee2MQTT</div><div class="card-desc">Zigbee bridge</div><div class="card-port">:8080</div></div></div></a>
+                <a href="http://192.168.50.50:6052" class="card cat-smart"><div class="card-content"><div class="card-icon"><i class="fas fa-microchip"></i></div><div class="card-info"><div class="card-title">ESPHome</div><div class="card-desc">ESP device manager</div><div class="card-port">:6052</div></div></div></a>
+            </div>
+        </section>
+
+        <!-- Monitoring -->
+        <section class="category" data-category="monitor">
+            <div class="category-header">
+                <div class="category-icon monitor"><i class="fas fa-chart-line"></i></div>
+                <h2>Monitoring</h2>
+                <span class="category-count">8 services</span>
+            </div>
+            <div class="grid">
+                <a href="http://192.168.50.50:3003" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-chart-area"></i></div><div class="card-info"><div class="card-title">Grafana</div><div class="card-desc">Metrics dashboards</div><div class="card-port">:3003</div></div></div></a>
+                <a href="http://192.168.50.50:9090" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-fire"></i></div><div class="card-info"><div class="card-title">Prometheus</div><div class="card-desc">Metrics database</div><div class="card-port">:9090</div></div></div></a>
+                <a href="http://192.168.50.50:3004" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-heartbeat"></i></div><div class="card-info"><div class="card-title">Uptime Kuma</div><div class="card-desc">Service monitoring</div><div class="card-port">:3004</div></div></div></a>
+                <a href="http://192.168.50.50:19999" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-tachometer-alt"></i></div><div class="card-info"><div class="card-title">Netdata</div><div class="card-desc">Real-time metrics</div><div class="card-port">:19999</div></div></div></a>
+                <a href="http://192.168.50.50:8085" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fab fa-docker"></i></div><div class="card-info"><div class="card-title">cAdvisor</div><div class="card-desc">Container metrics</div><div class="card-port">:8085</div></div></div></a>
+                <a href="http://192.168.50.50:8086" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-database"></i></div><div class="card-info"><div class="card-title">InfluxDB</div><div class="card-desc">Time-series DB</div><div class="card-port">:8086</div></div></div></a>
+                <a href="http://192.168.50.50:3100" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-scroll"></i></div><div class="card-info"><div class="card-title">Loki</div><div class="card-desc">Log aggregation</div><div class="card-port">:3100</div></div></div></a>
+                <a href="http://192.168.50.50:8765" class="card cat-monitor"><div class="card-content"><div class="card-icon"><i class="fas fa-wifi"></i></div><div class="card-info"><div class="card-title">SpeedTest Tracker</div><div class="card-desc">Internet speed monitor</div><div class="card-port">:8765</div></div></div></a>
+            </div>
+        </section>
+
+        <!-- Security -->
+        <section class="category" data-category="security">
+            <div class="category-header">
+                <div class="category-icon security"><i class="fas fa-shield-alt"></i></div>
+                <h2>Security & Surveillance</h2>
+                <span class="category-count">6 services</span>
+            </div>
+            <div class="grid">
+                <a href="http://192.168.50.50:5001" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-video"></i></div><div class="card-info"><div class="card-title">Frigate NVR</div><div class="card-desc">AI-powered cameras</div><div class="card-port">:5001</div></div></div></a>
+                <a href="http://192.168.50.50:8099" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-camera"></i></div><div class="card-info"><div class="card-title">Agent DVR</div><div class="card-desc">Camera recording</div><div class="card-port">:8099</div></div></div></a>
+                <a href="http://192.168.50.50:8088" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-key"></i></div><div class="card-info"><div class="card-title">Vaultwarden</div><div class="card-desc">Password manager</div><div class="card-port">:8088</div></div></div></a>
+                <a href="http://192.168.50.50:8089" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-user-shield"></i></div><div class="card-info"><div class="card-title">CrowdSec</div><div class="card-desc">Security engine</div><div class="card-port">:8089</div></div></div></a>
+                <a href="http://192.168.50.50:8084" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-ban"></i></div><div class="card-info"><div class="card-title">AdGuard Home</div><div class="card-desc">DNS ad blocking</div><div class="card-port">:8084</div></div></div></a>
+                <a href="http://192.168.50.50:81" class="card cat-security"><div class="card-content"><div class="card-icon"><i class="fas fa-random"></i></div><div class="card-info"><div class="card-title">Nginx Proxy</div><div class="card-desc">Reverse proxy & SSL</div><div class="card-port">:81</div></div></div></a>
+            </div>
+        </section>
+
+        <!-- Storage -->
+        <section class="category" data-category="storage">
+            <div class="category-header">
+                <div class="category-icon storage"><i class="fas fa-hdd"></i></div>
+                <h2>Storage & Documents</h2>
+                <span class="category-count">9 services</span>
+            </div>
+            <div class="grid">
+                <a href="http://192.168.50.50:8087" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-folder-open"></i></div><div class="card-info"><div class="card-title">File Browser</div><div class="card-desc">Web file manager</div><div class="card-port">:8087</div></div></div></a>
+                <a href="http://192.168.50.50:8083" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-book-reader"></i></div><div class="card-info"><div class="card-title">Calibre-web</div><div class="card-desc">eBook library</div><div class="card-port">:8083</div></div></div></a>
+                <a href="https://192.168.50.50:8194" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-desktop"></i></div><div class="card-info"><div class="card-title">Calibre Desktop</div><div class="card-desc">Full Calibre in browser</div><div class="card-port">:8194</div></div></div></a>
+                <a href="http://192.168.50.50:2342" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-images"></i></div><div class="card-info"><div class="card-title">PhotoPrism</div><div class="card-desc">AI photo management</div><div class="card-port">:2342</div></div></div></a>
+                <a href="http://192.168.50.50:8097" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-cloud"></i></div><div class="card-info"><div class="card-title">Nextcloud</div><div class="card-desc">Cloud storage</div><div class="card-port">:8097</div></div></div></a>
+                <a href="http://192.168.50.50:8384" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-sync"></i></div><div class="card-info"><div class="card-title">Syncthing</div><div class="card-desc">P2P file sync</div><div class="card-port">:8384</div></div></div></a>
+                <a href="http://192.168.50.50:8202" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-archive"></i></div><div class="card-info"><div class="card-title">Kopia</div><div class="card-desc">Encrypted backups</div><div class="card-port">:8202</div></div></div></a>
+                <a href="http://192.168.50.50:8093" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-file-alt"></i></div><div class="card-info"><div class="card-title">Paperless-ngx</div><div class="card-desc">Document OCR</div><div class="card-port">:8093</div></div></div></a>
+                <a href="http://192.168.50.50:8098" class="card cat-storage"><div class="card-content"><div class="card-icon"><i class="fas fa-rss"></i></div><div class="card-info"><div class="card-title">FreshRSS</div><div class="card-desc">RSS reader</div><div class="card-port">:8098</div></div></div></a>
+            </div>
+        </section>
+
+        <!-- AI & Dev -->
+        <section class="category" data-category="ai">
+            <div class="category-header">
+                <div class="category-icon ai"><i class="fas fa-robot"></i></div>
                 <h2>AI & Development</h2>
+                <span class="category-count">5 services</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:3000" class="service">
-                    <span class="service-name">Open WebUI</span>
-                    <span class="service-desc">ChatGPT-style AI interface</span>
-                    <span class="service-port">:3000</span>
-                </a>
-                <a href="http://192.168.50.50:11434" class="service">
-                    <span class="service-name">Ollama</span>
-                    <span class="service-desc">Local LLM engine</span>
-                    <span class="service-port">:11434</span>
-                </a>
-                <a href="http://192.168.50.50:8888" class="service">
-                    <span class="service-name">Jupyter</span>
-                    <span class="service-desc">Data science notebooks</span>
-                    <span class="service-port">:8888</span>
-                </a>
-                <a href="http://192.168.50.50:8443" class="service">
-                    <span class="service-name">Code Server</span>
-                    <span class="service-desc">VS Code in browser</span>
-                    <span class="service-port">:8443</span>
-                </a>
-                <a href="http://192.168.50.50:3001" class="service">
-                    <span class="service-name">Gitea</span>
-                    <span class="service-desc">Private Git server</span>
-                    <span class="service-port">:3001</span>
-                </a>
+            <div class="grid">
+                <a href="http://192.168.50.50:3000" class="card cat-ai"><div class="card-content"><div class="card-icon"><i class="fas fa-comments"></i></div><div class="card-info"><div class="card-title">Open WebUI</div><div class="card-desc">Chat with qwen2.5:14b</div><div class="card-port">:3000</div></div></div></a>
+                <a href="http://192.168.50.50:11434" class="card cat-ai"><div class="card-content"><div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-info"><div class="card-title">Ollama</div><div class="card-desc">qwen2.5:14b (default)</div><div class="card-port">:11434</div></div></div></a>
+                <a href="http://192.168.50.50:8888" class="card cat-ai"><div class="card-content"><div class="card-icon"><i class="fab fa-python"></i></div><div class="card-info"><div class="card-title">Jupyter</div><div class="card-desc">Python notebooks</div><div class="card-port">:8888</div></div></div></a>
+                <a href="http://192.168.50.50:8443" class="card cat-ai"><div class="card-content"><div class="card-icon"><i class="fas fa-code"></i></div><div class="card-info"><div class="card-title">Code Server</div><div class="card-desc">VS Code in browser</div><div class="card-port">:8443</div></div></div></a>
+                <a href="http://192.168.50.50:3001" class="card cat-ai"><div class="card-content"><div class="card-icon"><i class="fab fa-git-alt"></i></div><div class="card-info"><div class="card-title">Gitea</div><div class="card-desc">Git hosting</div><div class="card-port">:3001</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
+        <!-- Tools -->
+        <section class="category" data-category="tools">
             <div class="category-header">
-                <span class="category-icon">📊</span>
-                <h2>Monitoring & Analytics</h2>
+                <div class="category-icon tools"><i class="fas fa-wrench"></i></div>
+                <h2>Tools & Utilities</h2>
+                <span class="category-count">4 services</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:3003" class="service">
-                    <span class="service-name">Grafana</span>
-                    <span class="service-desc">Beautiful metrics dashboards</span>
-                    <span class="service-port">:3003</span>
-                </a>
-                <a href="http://192.168.50.50:9090" class="service">
-                    <span class="service-name">Prometheus</span>
-                    <span class="service-desc">Metrics collection engine</span>
-                    <span class="service-port">:9090</span>
-                </a>
-                <a href="http://192.168.50.50:3004" class="service">
-                    <span class="service-name">Uptime Kuma</span>
-                    <span class="service-desc">Service uptime monitoring</span>
-                    <span class="service-port">:3004</span>
-                </a>
-                <a href="http://192.168.50.50:19999" class="service">
-                    <span class="service-name">Netdata</span>
-                    <span class="service-desc">Real-time system metrics</span>
-                    <span class="service-port">:19999</span>
-                </a>
-                <a href="http://192.168.50.50:8085" class="service">
-                    <span class="service-name">cAdvisor</span>
-                    <span class="service-desc">Container resource stats</span>
-                    <span class="service-port">:8085</span>
-                </a>
-                <a href="http://192.168.50.50:3100" class="service">
-                    <span class="service-name">Loki</span>
-                    <span class="service-desc">Log aggregation system</span>
-                    <span class="service-port">:3100</span>
-                </a>
-                <a href="http://192.168.50.50:8086" class="service">
-                    <span class="service-name">InfluxDB</span>
-                    <span class="service-desc">Time-series database</span>
-                    <span class="service-port">:8086</span>
-                </a>
+            <div class="grid">
+                <a href="http://192.168.50.50:8078" class="card cat-tools"><div class="card-content"><div class="card-icon"><i class="fas fa-file-pdf"></i></div><div class="card-info"><div class="card-title">Stirling PDF</div><div class="card-desc">PDF toolkit</div><div class="card-port">:8078</div></div></div></a>
+                <a href="http://192.168.50.50:8079" class="card cat-tools"><div class="card-content"><div class="card-icon"><i class="fas fa-tools"></i></div><div class="card-info"><div class="card-title">IT-Tools</div><div class="card-desc">80+ dev utilities</div><div class="card-port">:8079</div></div></div></a>
+                <a href="http://192.168.50.50:5005" class="card cat-tools"><div class="card-content"><div class="card-icon"><i class="fas fa-eye"></i></div><div class="card-info"><div class="card-title">ChangeDetection</div><div class="card-desc">Website monitoring</div><div class="card-port">:5005</div></div></div></a>
+                <a href="http://192.168.50.50:3050" class="card cat-tools"><div class="card-content"><div class="card-icon"><i class="fas fa-desktop"></i></div><div class="card-info"><div class="card-title">VNC Desktop</div><div class="card-desc">Remote desktop</div><div class="card-port">:3050</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
+        <!-- Home Management -->
+        <section class="category" data-category="home">
             <div class="category-header">
-                <span class="category-icon">🔐</span>
-                <h2>Security</h2>
+                <div class="category-icon home"><i class="fas fa-house-user"></i></div>
+                <h2>Home Management</h2>
+                <span class="category-count">4 services</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:8088" class="service">
-                    <span class="service-name">Vaultwarden</span>
-                    <span class="service-desc">Password manager</span>
-                    <span class="service-port">:8088</span>
-                </a>
-                <a href="http://192.168.50.50:8089" class="service">
-                    <span class="service-name">CrowdSec</span>
-                    <span class="service-desc">Collaborative security IPS</span>
-                    <span class="service-port">:8089</span>
-                </a>
+            <div class="grid">
+                <a href="http://192.168.50.50:9925" class="card cat-home"><div class="card-content"><div class="card-icon"><i class="fas fa-utensils"></i></div><div class="card-info"><div class="card-title">Mealie</div><div class="card-desc">Recipe & meal planning</div><div class="card-port">:9925</div></div></div></a>
+                <a href="http://192.168.50.50:9283" class="card cat-home"><div class="card-content"><div class="card-icon"><i class="fas fa-shopping-basket"></i></div><div class="card-info"><div class="card-title">Grocy</div><div class="card-desc">Household ERP</div><div class="card-port">:9283</div></div></div></a>
+                <a href="http://192.168.50.50:5006" class="card cat-home"><div class="card-content"><div class="card-icon"><i class="fas fa-wallet"></i></div><div class="card-info"><div class="card-title">Actual Budget</div><div class="card-desc">Personal finance</div><div class="card-port">:5006</div></div></div></a>
+                <a href="http://192.168.50.50:8280" class="card cat-notify"><div class="card-content"><div class="card-icon"><i class="fas fa-bell"></i></div><div class="card-info"><div class="card-title">Ntfy</div><div class="card-desc">Push notifications</div><div class="card-port">:8280</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
+        <!-- Dashboards -->
+        <section class="category" data-category="dash">
             <div class="category-header">
-                <span class="category-icon">💾</span>
-                <h2>Storage & Backup</h2>
-            </div>
-            <div class="services">
-                <a href="http://192.168.50.50:8097" class="service">
-                    <span class="service-name">Nextcloud</span>
-                    <span class="service-desc">Personal cloud storage</span>
-                    <span class="service-port">:8097</span>
-                </a>
-                <a href="http://192.168.50.50:2342" class="service">
-                    <span class="service-name">PhotoPrism</span>
-                    <span class="service-desc">AI-powered photo management</span>
-                    <span class="service-port">:2342</span>
-                </a>
-                <a href="http://192.168.50.50:8087" class="service">
-                    <span class="service-name">File Browser</span>
-                    <span class="service-desc">Web-based file manager</span>
-                    <span class="service-port">:8087</span>
-                </a>
-                <a href="http://192.168.50.50:8384" class="service">
-                    <span class="service-name">Syncthing</span>
-                    <span class="service-desc">Continuous file synchronization</span>
-                    <span class="service-port">:8384</span>
-                </a>
-                <a href="http://192.168.50.50:8202/repo" class="service">
-                    <span class="service-name">Kopia</span>
-                    <span class="service-desc">Encrypted backup solution</span>
-                    <span class="service-port">:8202</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="category">
-            <div class="category-header">
-                <span class="category-icon">📄</span>
-                <h2>Productivity</h2>
-            </div>
-            <div class="services">
-                <a href="http://192.168.50.50:8093" class="service">
-                    <span class="service-name">Paperless-ngx</span>
-                    <span class="service-desc">Document management system</span>
-                    <span class="service-port">:8093</span>
-                </a>
-                <a href="http://192.168.50.50:8098" class="service">
-                    <span class="service-name">FreshRSS</span>
-                    <span class="service-desc">Self-hosted RSS reader</span>
-                    <span class="service-port">:8098</span>
-                </a>
-                <a href="http://192.168.50.50:8094" class="service">
-                    <span class="service-name">Calibre</span>
-                    <span class="service-desc">E-book library manager</span>
-                    <span class="service-port">:8094</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="category">
-            <div class="category-header">
-                <span class="category-icon">📱</span>
+                <div class="category-icon dash"><i class="fas fa-th-large"></i></div>
                 <h2>Dashboards</h2>
+                <span class="category-count">6 services</span>
             </div>
-            <div class="services">
-                <a href="http://192.168.50.50:8090" class="service">
-                    <span class="service-name">Heimdall</span>
-                    <span class="service-desc">Main service dashboard</span>
-                    <span class="service-port">:8090</span>
-                </a>
-                <a href="http://192.168.50.50:8091" class="service">
-                    <span class="service-name">Homer</span>
-                    <span class="service-desc">Simple static dashboard</span>
-                    <span class="service-port">:8091</span>
-                </a>
-                <a href="http://192.168.50.50:8092" class="service">
-                    <span class="service-name">Organizr</span>
-                    <span class="service-desc">Unified service organizer</span>
-                    <span class="service-port">:8092</span>
-                </a>
+            <div class="grid">
+                <a href="http://192.168.50.50:9000" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fab fa-docker"></i></div><div class="card-info"><div class="card-title">Portainer</div><div class="card-desc">Docker management</div><div class="card-port">:9000</div></div></div></a>
+                <a href="http://192.168.50.50:8090" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fas fa-th"></i></div><div class="card-info"><div class="card-title">Heimdall</div><div class="card-desc">App dashboard</div><div class="card-port">:8090</div></div></div></a>
+                <a href="http://192.168.50.50:8091" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fas fa-home"></i></div><div class="card-info"><div class="card-title">Homer</div><div class="card-desc">Static dashboard</div><div class="card-port">:8091</div></div></div></a>
+                <a href="http://192.168.50.50:4000" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fas fa-grip-horizontal"></i></div><div class="card-info"><div class="card-title">Dashy</div><div class="card-desc">Feature-rich dashboard</div><div class="card-port">:4000</div></div></div></a>
+                <a href="http://192.168.50.50:8092" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fas fa-layer-group"></i></div><div class="card-info"><div class="card-title">Organizr</div><div class="card-desc">HTPC organizer</div><div class="card-port">:8092</div></div></div></a>
+                <a href="http://192.168.50.50:8000" class="card cat-dash"><div class="card-content"><div class="card-icon"><i class="fas fa-server"></i></div><div class="card-info"><div class="card-title">HomeLab Dashboard</div><div class="card-desc">Custom dashboard</div><div class="card-port">:8000</div></div></div></a>
             </div>
-        </div>
+        </section>
 
-        <div class="category">
-            <div class="category-header">
-                <span class="category-icon">🖥️</span>
-                <h2>Utilities</h2>
-            </div>
-            <div class="services">
-                <a href="http://192.168.50.50:3050" class="service">
-                    <span class="service-name">VNC Desktop</span>
-                    <span class="service-desc">Ubuntu desktop in browser</span>
-                    <span class="service-port">:3050</span>
-                </a>
-            </div>
-        </div>
-
-        <footer>
-            <p>🚀 HomeLab Infrastructure • Built with Docker & OrbStack on M4 Mac Mini</p>
-            <p style="margin-top: 0.5rem; opacity: 0.6;">39 Services • 10GbE Network • 4TB Storage</p>
+        <footer class="footer">
+            <p>Press <kbd>/</kbd> to search • <kbd>Esc</kbd> to clear</p>
         </footer>
     </div>
+
+    <script>
+        const search = document.getElementById('search');
+        const cards = document.querySelectorAll('.card');
+        const categories = document.querySelectorAll('.category');
+        const filterBtns = document.querySelectorAll('.filter-pill');
+
+        search.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? '' : 'none';
+            });
+            categories.forEach(cat => {
+                const visibleCards = cat.querySelectorAll('.card:not([style*="display: none"])');
+                cat.style.display = visibleCards.length ? '' : 'none';
+            });
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                categories.forEach(cat => {
+                    cat.style.display = (filter === 'all' || cat.dataset.category === filter) ? '' : 'none';
+                });
+                cards.forEach(c => c.style.display = '');
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
+            if (e.key === 'Escape') { search.value = ''; search.blur(); cards.forEach(c => c.style.display = ''); categories.forEach(c => c.style.display = ''); }
+        });
+    </script>
 </body>
 </html>
